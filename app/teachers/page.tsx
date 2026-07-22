@@ -14,7 +14,7 @@ export default function TeachersPage() {
         eyebrow="The people behind the courses"
         title="Our Teachers"
         description="Every instructor at SF Digital Solutions works in the field they teach, so students learn how things are actually done, not just how they look in a textbook."
-        image="https://picsum.photos/seed/sfds-teacher-mentor-503/1600/700"
+        image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
       />
 
       <section className="py-16 sm:py-20">

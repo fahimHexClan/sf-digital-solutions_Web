@@ -61,7 +61,7 @@ export const services: Service[] = [
     description:
       "Custom software built around how your business actually works — from internal tools to full systems.",
     icon: "Code2",
-    image: "https://picsum.photos/seed/sfds-service-software/1200/700",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
       "Custom web applications",
       "Business automation tools",
@@ -81,7 +81,7 @@ export const services: Service[] = [
     description:
       "Fast, mobile-friendly websites for businesses, institutes and personal brands — designed and built end to end.",
     icon: "Globe",
-    image: "https://picsum.photos/seed/sfds-service-website/1200/700",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
       "Business & portfolio websites",
       "E-commerce stores",
@@ -101,7 +101,7 @@ export const services: Service[] = [
     description:
       "Logos, branding kits and marketing visuals that make a business look as good as its work.",
     icon: "PenTool",
-    image: "https://picsum.photos/seed/sfds-service-graphic/1200/700",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop",
     deliverables: ["Logo & brand identity", "Social media creatives", "Print materials"],
     process: [
       "Brand discovery: audience, tone, competitors",
@@ -117,7 +117,7 @@ export const services: Service[] = [
     description:
       "Content planning, page management and ad campaigns that bring real customers, not just likes.",
     icon: "TrendingUp",
-    image: "https://picsum.photos/seed/sfds-service-social/1200/700",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
       "Content calendars & posting",
       "Facebook / Instagram ads",
@@ -142,7 +142,7 @@ export const courses: Course[] = [
     icon: "Code2",
     duration: "4 Months",
     level: "Beginner to Advanced",
-    image: "https://picsum.photos/seed/sfds-webdevelopment-code-401/1200/600",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "Students with no prior coding background who want to build real websites and web applications, and eventually work as a developer or freelancer.",
     curriculum: [
@@ -167,7 +167,7 @@ export const courses: Course[] = [
     icon: "PenTool",
     duration: "3 Months",
     level: "Beginner",
-    image: "https://picsum.photos/seed/sfds-graphicdesign-creative-402/1200/600",
+    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "Anyone interested in visual design, branding or illustration — no design background needed to start.",
     curriculum: [
@@ -192,7 +192,7 @@ export const courses: Course[] = [
     icon: "TrendingUp",
     duration: "2 Months",
     level: "Beginner to Intermediate",
-    image: "https://picsum.photos/seed/sfds-digitalmarketing-socialmedia-403/1200/600",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "Business owners, marketers, or students who want to run a business's online presence and advertising.",
     curriculum: [
@@ -256,7 +256,7 @@ export const courses: Course[] = [
     icon: "Network",
     duration: "2 Months",
     level: "Intermediate",
-    image: "https://picsum.photos/seed/sfds-networking-hardware-405/1200/600",
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "Students who enjoy working with their hands and want to understand what's inside a computer and how networks connect.",
     curriculum: [
@@ -281,7 +281,7 @@ export const courses: Course[] = [
     icon: "GraduationCap",
     duration: "6 Months",
     level: "Beginner to Intermediate",
-    image: "https://picsum.photos/seed/sfds-it-diploma-501/1200/600",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "School leavers, career-changers and anyone who wants a structured, all-round foundation in IT — from computer basics through to networking, web technologies and databases — backed by a recognized diploma rather than a single narrow skill.",
     curriculum: [
@@ -309,7 +309,7 @@ export const teachers: Teacher[] = [
     role: "Lead Instructor — Web Development",
     bio: "Leads the Web Development and Software Engineering track, teaching modern full-stack tools including Laravel and React.",
     image:
-      "https://picsum.photos/seed/sfds-man-professional-101/600/600",
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
   },
   {
     slug: "priya-r",
@@ -317,7 +317,7 @@ export const teachers: Teacher[] = [
     role: "Graphic Design Trainer",
     bio: "Ten years in branding and print design, now guiding students through Photoshop, Illustrator and design fundamentals.",
     image:
-      "https://picsum.photos/seed/sfds-woman-teacher-112/600/600",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
   },
   {
     slug: "arun-k",
@@ -325,7 +325,7 @@ export const teachers: Teacher[] = [
     role: "Networking & Hardware Specialist",
     bio: "Certified network technician who trains students on PC hardware, troubleshooting and small-office network setup.",
     image:
-      "https://picsum.photos/seed/sfds-man-professional-103/600/600",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
   },
   {
     slug: "nilani-t",
@@ -333,7 +333,7 @@ export const teachers: Teacher[] = [
     role: "Digital Marketing Trainer",
     bio: "Runs the Digital Marketing course, covering SEO, social media strategy and campaign analytics with hands-on projects.",
     image:
-      "https://picsum.photos/seed/sfds-woman-marketing-114/600/600",
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop",
   },
 ];
 
@@ -347,7 +347,7 @@ export const posts: Post[] = [
     author: "SF Digital Solutions",
     category: "Career",
     image:
-      "https://picsum.photos/seed/sfds-laptop-coding-201/900/600",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop",
     content: [
       "The job market keeps shifting, and the students who move fastest are the ones who pick up practical, demonstrable skills rather than just theory.",
       "Web development remains at the top of the list. Businesses of every size need someone who can build and maintain a website, and tools like Laravel and React make it possible to go from beginner to job-ready in a few months.",
@@ -365,7 +365,7 @@ export const posts: Post[] = [
     author: "SF Digital Solutions",
     category: "Web Development",
     image:
-      "https://picsum.photos/seed/sfds-webdesign-computer-202/900/600",
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=900&auto=format&fit=crop",
     content: [
       "Every business, school and organisation needs a website or a web application, and that demand hasn't slowed down.",
       "What has changed is how approachable the field has become. With frameworks like Laravel on the backend and React on the frontend, a motivated student can build a genuinely useful project within their first few months of learning.",
@@ -382,7 +382,7 @@ export const posts: Post[] = [
     author: "SF Digital Solutions",
     category: "Finance",
     image:
-      "https://picsum.photos/seed/sfds-bitcoin-finance-203/900/600",
+      "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=900&auto=format&fit=crop",
     content: [
       "Crypto trading has moved from a niche hobby to something many people want a basic understanding of, whether or not they plan to trade actively.",
       "Before opening any account, it's worth understanding the fundamentals: what a blockchain actually is, how exchanges work, and why volatility is part of the territory.",

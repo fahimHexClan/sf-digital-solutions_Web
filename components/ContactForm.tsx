@@ -7,7 +7,7 @@ const courseOptions = [
   "Web Development",
   "Graphic Design",
   "Digital Marketing",
-  "MS Office & Computer Basics",
+  "Professional Computer Basics Course",
   "Networking & Hardware",
   "IT Diploma",
 ];
@@ -32,7 +32,9 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center text-center py-10">
-        <CheckCircle2 size={48} className="text-brand-blue" />
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-sky shadow-lg shadow-brand-blue/30">
+          <CheckCircle2 size={32} className="text-white" />
+        </span>
         <h3 className="mt-4 font-display font-semibold text-xl text-brand-navy">
           Message sent
         </h3>
@@ -62,7 +64,7 @@ export default function ContactForm() {
             type="text"
             required
             placeholder="Your name"
-            className="w-full rounded-md border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
           />
         </div>
         <div>
@@ -74,7 +76,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             placeholder="07X XXX XXXX"
-            className="w-full rounded-md border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
           />
         </div>
       </div>
@@ -89,7 +91,7 @@ export default function ContactForm() {
           type="email"
           required
           placeholder="you@example.com"
-          className="w-full rounded-md border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
         />
       </div>
 
@@ -100,7 +102,7 @@ export default function ContactForm() {
         <select
           id="course"
           name="course"
-          className="w-full rounded-md border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
         >
           <optgroup label="A Course">
             {courseOptions.map((c) => (
@@ -124,13 +126,13 @@ export default function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us a bit about what you're looking for"
-          className="w-full rounded-md border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-brand-blue px-7 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+        className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-blue to-brand-sky px-7 py-3 font-semibold text-white shadow-md shadow-brand-blue/25 hover:shadow-lg hover:shadow-brand-blue/35 transition-shadow"
       >
         Send Message
       </button>

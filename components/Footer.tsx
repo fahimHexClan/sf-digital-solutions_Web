@@ -31,11 +31,15 @@ function Youtube(props: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-blue-100">
-      <div className="container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+    <footer className="relative bg-brand-navy text-blue-100 overflow-hidden">
+      {/* Decorative glow accents */}
+      <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-brand-blue/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-brand-sky/10 blur-3xl" />
+
+      <div className="relative container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2 mb-4">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-blue text-white">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-sky text-white shadow-md shadow-brand-blue/30">
               <GraduationCap size={20} />
             </span>
             <span className="font-display font-bold text-white text-lg">
@@ -51,21 +55,21 @@ export default function Footer() {
             <a
               href="#"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-brand-blue transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
               <Facebook size={16} />
             </a>
             <a
               href="#"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-brand-blue transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
               <Instagram size={16} />
             </a>
             <a
               href="#"
               aria-label="YouTube"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-brand-blue transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
               <Youtube size={16} />
             </a>
@@ -73,11 +77,15 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display font-semibold text-white mb-4">Courses</h3>
+          <h3 className="font-display font-semibold text-white mb-1">Courses</h3>
+          <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
             {courses.slice(0, 5).map((c) => (
               <li key={c.slug}>
-                <Link href={`/courses/${c.slug}`} className="hover:text-white transition-colors">
+                <Link
+                  href={`/courses/${c.slug}`}
+                  className="hover:text-white hover:translate-x-0.5 inline-block transition-all"
+                >
                   {c.title}
                 </Link>
               </li>
@@ -86,11 +94,15 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display font-semibold text-white mb-4">Services</h3>
+          <h3 className="font-display font-semibold text-white mb-1">Services</h3>
+          <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="hover:text-white hover:translate-x-0.5 inline-block transition-all"
+                >
                   {s.title}
                 </Link>
               </li>
@@ -99,35 +111,43 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display font-semibold text-white mb-4">Quick Links</h3>
+          <h3 className="font-display font-semibold text-white mb-1">Quick Links</h3>
+          <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
-            <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-            <li><Link href="/teachers" className="hover:text-white transition-colors">Our Teachers</Link></li>
-            <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+            <li><Link href="/" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Home</Link></li>
+            <li><Link href="/teachers" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Our Teachers</Link></li>
+            <li><Link href="/blog" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Blog</Link></li>
+            <li><Link href="/contact" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Contact Us</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-display font-semibold text-white mb-4">Contact</h3>
+          <h3 className="font-display font-semibold text-white mb-1">Contact</h3>
+          <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-3 text-sm text-blue-200/80">
             <li className="flex gap-2.5">
-              <MapPin size={18} className="shrink-0 text-brand-sky" />
-              <span>Kalutara, Western Province, Sri Lanka</span>
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
+                <MapPin size={13} />
+              </span>
+              <span className="pt-0.5">Kalutara, Western Province, Sri Lanka</span>
             </li>
             <li className="flex gap-2.5">
-              <Phone size={18} className="shrink-0 text-brand-sky" />
-              <span>+94 XX XXX XXXX</span>
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
+                <Phone size={13} />
+              </span>
+              <span className="pt-0.5">+94 XX XXX XXXX</span>
             </li>
             <li className="flex gap-2.5">
-              <Mail size={18} className="shrink-0 text-brand-sky" />
-              <span>hello@sfdigitalsolutions.lk</span>
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
+                <Mail size={13} />
+              </span>
+              <span className="pt-0.5">hello@sfdigitalsolutions.lk</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
+      <div className="relative border-t border-white/10">
         <div className="container-page py-5 text-xs text-blue-200/60 flex flex-col sm:flex-row justify-between gap-2">
           <p>© {new Date().getFullYear()} SF Digital Solutions. All rights reserved.</p>
           <p>Built for students who mean business.</p>

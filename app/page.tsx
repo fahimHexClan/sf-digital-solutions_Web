@@ -28,7 +28,7 @@ export default function Home() {
           <div className="relative h-80 sm:h-96">
             <div className="absolute left-0 top-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="https://picsum.photos/seed/sfds-classroom-students-301/800/700"
+                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop"
                 alt="Students learning together"
                 fill
                 sizes="(max-width: 1024px) 60vw, 400px"
@@ -37,7 +37,7 @@ export default function Home() {
             </div>
             <div className="absolute right-0 bottom-0 w-[55%] h-[55%] rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
               <Image
-                src="https://picsum.photos/seed/sfds-teacher-mentor-302/800/700"
+                src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=800&auto=format&fit=crop"
                 alt="Instructor helping a student"
                 fill
                 sizes="(max-width: 1024px) 50vw, 320px"

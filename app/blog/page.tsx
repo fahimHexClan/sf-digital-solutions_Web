@@ -14,7 +14,7 @@ export default function BlogPage() {
         eyebrow="Blog"
         title="Guides, tips & updates"
         description="Practical write-ups on the skills we teach and the industry around them."
-        image="https://picsum.photos/seed/sfds-blogging-keyboard-514/1600/700"
+        image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
       />
 
       <section className="py-16 sm:py-20">
