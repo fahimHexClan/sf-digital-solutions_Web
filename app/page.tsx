@@ -16,6 +16,7 @@ import CourseCategories from "@/components/CourseCategories";
 import ServicesSection from "@/components/ServicesSection";
 import TeacherCard from "@/components/TeacherCard";
 import BlogCard from "@/components/BlogCard";
+import CourseFinder from "@/components/CourseFinder";
 import { teachers, posts } from "@/lib/data";
 
 const audiences = [
@@ -110,6 +111,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CourseFinder />
 
       <CourseCategories />
       <ServicesSection />
