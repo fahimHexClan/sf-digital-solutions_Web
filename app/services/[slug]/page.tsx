@@ -10,11 +10,12 @@ import {
   Globe,
   PenTool,
   TrendingUp,
+  Search,
 } from "lucide-react";
 import { services } from "@/lib/data";
 import ServiceCard from "@/components/ServiceCard";
 
-const iconMap = { Code2, Globe, PenTool, TrendingUp };
+const iconMap = { Code2, Globe, PenTool, TrendingUp, Search };
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));

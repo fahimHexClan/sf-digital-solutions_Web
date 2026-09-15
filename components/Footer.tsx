@@ -53,21 +53,27 @@ export default function Footer() {
           </p>
           <div className="flex gap-3 mt-5">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61588815615416"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
               <Facebook size={16} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/sfdigitalsolutions_lk/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
               <Instagram size={16} />
             </a>
             <a
-              href="#"
+              href="https://www.youtube.com/@SfDigitalSolutions"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="YouTube"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-brand-blue hover:to-brand-sky transition-all"
             >
@@ -129,19 +135,19 @@ export default function Footer() {
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
                 <MapPin size={13} />
               </span>
-              <span className="pt-0.5">Kalutara, Western Province, Sri Lanka</span>
+              <span className="pt-0.5">Online-Based — Sri Lanka</span>
             </li>
             <li className="flex gap-2.5">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
                 <Phone size={13} />
               </span>
-              <span className="pt-0.5">+94 XX XXX XXXX</span>
+              <span className="pt-0.5">+94 78 519 4631</span>
             </li>
             <li className="flex gap-2.5">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
                 <Mail size={13} />
               </span>
-              <span className="pt-0.5">hello@sfdigitalsolutions.lk</span>
+              <span className="pt-0.5">sfdigitalsolutions.lk@gmail.com</span>
             </li>
           </ul>
         </div>

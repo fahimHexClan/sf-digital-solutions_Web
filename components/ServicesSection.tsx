@@ -30,7 +30,7 @@ export default function ServicesSection() {
           </Link>
         </div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <ServiceCard key={s.slug} service={s} index={i} />
           ))}

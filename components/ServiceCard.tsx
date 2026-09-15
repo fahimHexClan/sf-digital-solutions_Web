@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Code2, Globe, PenTool, TrendingUp, CheckCircle2, ArrowRight } from "lucide-react";
+import { Code2, Globe, PenTool, TrendingUp, Search, CheckCircle2, ArrowRight } from "lucide-react";
 import type { Service } from "@/lib/data";
 
-const iconMap = { Code2, Globe, PenTool, TrendingUp };
+const iconMap = { Code2, Globe, PenTool, TrendingUp, Search };
 
 // Rotating gradient + glow accents, cycling by index so each card gets a
 // consistent but distinct shade within the blue brand palette.

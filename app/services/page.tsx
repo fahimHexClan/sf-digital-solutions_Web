@@ -23,7 +23,7 @@ export default function ServicesPage() {
         <div className="absolute -top-24 right-1/4 h-72 w-72 rounded-full bg-brand-blue/10 blur-3xl" />
         <div className="absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-brand-sky/10 blur-3xl" />
         <div className="container-page relative">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <ServiceCard key={s.slug} service={s} index={i} />
             ))}

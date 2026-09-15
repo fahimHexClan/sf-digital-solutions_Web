@@ -73,6 +73,11 @@ export default async function CourseDetailPage({
             <h1 className="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">
               {course.title}
             </h1>
+            {course.comingSoon && (
+              <span className="mt-3 inline-block rounded-full bg-brand-blue px-3 py-1 text-xs font-semibold text-white">
+                Coming Soon
+              </span>
+            )}
             <div className="mt-3 flex flex-wrap gap-5 text-sm text-blue-100">
               <span className="inline-flex items-center gap-1.5">
                 <Clock size={16} /> {course.duration}
@@ -177,7 +182,7 @@ export default async function CourseDetailPage({
                 </div>
               </dl>
 
-              {course.offerPrice && (
+              {!course.comingSoon && course.offerPrice && (
                 <div className="mt-6 pt-5 border-t border-slate-200">
                   <div className="flex items-baseline gap-2">
                     {course.originalPrice && (
@@ -214,12 +219,25 @@ export default async function CourseDetailPage({
                 </div>
               )}
 
-              <Link
-                href={`https://sf-digital-solutions-lk-registratio.vercel.app/?course=${course.slug}`}
-                className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
-              >
-                Enroll Now <ArrowRight size={18} />
-              </Link>
+              {course.comingSoon ? (
+                <div className="mt-6 rounded-md bg-white border border-slate-200 px-4 py-3 text-sm text-brand-slate">
+                  This course isn&apos;t open for enrollment yet. Reach out and
+                  we&apos;ll let you know as soon as it launches.
+                  <Link
+                    href="/contact"
+                    className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+                  >
+                    Notify Me <ArrowRight size={18} />
+                  </Link>
+                </div>
+              ) : (
+                <Link
+                  href={`https://sf-digital-solutions-lk-registratio.vercel.app/?course=${course.slug}`}
+                  className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+                >
+                  Enroll Now <ArrowRight size={18} />
+                </Link>
+              )}
             </div>
           </div>
         </div>

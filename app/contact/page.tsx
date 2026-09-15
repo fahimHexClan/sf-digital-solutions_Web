@@ -11,19 +11,19 @@ const info = [
   {
     icon: MapPin,
     label: "Address",
-    value: "Kalutara, Western Province, Sri Lanka",
+    value: "Online-Based — Sri Lanka",
     accent: "from-brand-blue to-brand-sky",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+94 XX XXX XXXX",
+    value: "+94 78 519 4631",
     accent: "from-brand-sky to-brand-navy",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "hello@sfdigitalsolutions.lk",
+    value: "sfdigitalsolutions.lk@gmail.com",
     accent: "from-brand-navy to-brand-blue",
   },
 ];

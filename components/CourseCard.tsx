@@ -17,6 +17,11 @@ export default function CourseCard({ course }: { course: Course }) {
           sizes="(max-width: 640px) 100vw, 400px"
           className="object-cover"
         />
+        {course.comingSoon && (
+          <span className="absolute top-3 right-3 rounded-full bg-brand-navy/90 backdrop-blur px-3 py-1 text-xs font-semibold text-white shadow-md">
+            Coming Soon
+          </span>
+        )}
       </div>
       <div className="p-6 flex flex-col flex-1">
         <h3 className="font-display font-semibold text-lg text-brand-navy">
@@ -34,7 +39,7 @@ export default function CourseCard({ course }: { course: Course }) {
           </span>
         </div>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue">
-          View Course <ArrowRight size={14} />
+          {course.comingSoon ? "Learn More" : "View Course"} <ArrowRight size={14} />
         </span>
       </div>
     </Link>

@@ -1,6 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Target,
+  GraduationCap,
+  Laptop,
+  BookOpen,
+  Award,
+  Rocket,
+} from "lucide-react";
 import Hero from "@/components/Hero";
 import CourseCategories from "@/components/CourseCategories";
 import ServicesSection from "@/components/ServicesSection";
@@ -8,11 +15,37 @@ import TeacherCard from "@/components/TeacherCard";
 import BlogCard from "@/components/BlogCard";
 import { teachers, posts } from "@/lib/data";
 
-const highlights = [
-  "Small batch sizes so every student gets real attention",
-  "Instructors who work in the field, not just teach it",
-  "Hands-on projects you can show in an interview",
-  "Flexible weekday and weekend batches",
+const whyUs = [
+  {
+    icon: Target,
+    title: "Practical Learning",
+    description: "Learn skills through practical examples and real-world tasks.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Beginner Friendly",
+    description: "Our training is designed for beginners with step-by-step guidance.",
+  },
+  {
+    icon: Laptop,
+    title: "Online Learning",
+    description: "Learn from anywhere through online classes and recorded learning materials.",
+  },
+  {
+    icon: BookOpen,
+    title: "Learning Support",
+    description: "Students receive learning resources and guidance throughout the course.",
+  },
+  {
+    icon: Award,
+    title: "Certificate",
+    description: "Course completion certificate for eligible students.",
+  },
+  {
+    icon: Rocket,
+    title: "Career Focused",
+    description: "Build practical skills that can support your education, job search and career growth.",
+  },
 ];
 
 export default function Home() {
@@ -22,82 +55,73 @@ export default function Home() {
       <CourseCategories />
       <ServicesSection />
 
-      {/* About snippet */}
+      {/* About / Why SF Digital Solutions */}
       <section className="py-20 sm:py-24">
-        <div className="container-page grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-80 sm:h-96">
-            <div className="absolute left-0 top-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop"
-                alt="Students learning together"
-                fill
-                sizes="(max-width: 1024px) 60vw, 400px"
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute right-0 bottom-0 w-[55%] h-[55%] rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
-              <Image
-                src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=800&auto=format&fit=crop"
-                alt="Instructor helping a student"
-                fill
-                sizes="(max-width: 1024px) 50vw, 320px"
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          <div>
+        <div className="container-page">
+          <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-widest text-brand-blue">
-              Why SF Digital Solutions
+              About SF Digital Solutions
             </span>
             <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl text-brand-navy">
-              Skills you can actually use on day one of a job
+              Why Choose SF Digital Solutions?
             </h2>
             <p className="mt-4 text-brand-slate leading-relaxed">
-              We started SF Digital Solutions to close the gap between
-              classroom theory and what employers actually expect. Every
-              course is built around real tools, real projects, and small
-              class sizes.
+              SF Digital Solutions is an online-based IT education and digital
+              solutions brand in Sri Lanka, helping students, job seekers and
+              professionals develop practical digital skills while providing
+              affordable digital solutions for businesses.
             </p>
-            <ul className="mt-6 space-y-3">
-              {highlights.map((h) => (
-                <li key={h} className="flex gap-3 text-sm text-brand-ink">
-                  <CheckCircle2 size={20} className="shrink-0 text-brand-blue" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-navy px-6 py-3.5 font-semibold text-white hover:bg-brand-navy-light transition-colors"
-            >
-              Talk to Us <ArrowRight size={18} />
-            </Link>
           </div>
+
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyUs.map(({ icon: Icon, title, description }) => (
+              <div
+                key={title}
+                className="rounded-2xl bg-brand-tint/60 border border-slate-100 p-6 hover:shadow-md transition-shadow"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-sky text-white shadow-md shadow-brand-blue/20">
+                  <Icon size={20} />
+                </span>
+                <h3 className="mt-4 font-display font-semibold text-brand-navy">
+                  {title}
+                </h3>
+                <p className="mt-1.5 text-sm text-brand-slate leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href="/contact"
+            className="mt-10 inline-flex items-center gap-2 rounded-md bg-brand-navy px-6 py-3.5 font-semibold text-white hover:bg-brand-navy-light transition-colors"
+          >
+            Talk to Us <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
 
-      {/* Teachers preview */}
+      {/* Teacher preview */}
       <section className="py-20 sm:py-24 bg-brand-tint/60">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <span className="text-xs font-semibold uppercase tracking-widest text-brand-blue">
-                Our Teachers
+                Our Instructor
               </span>
               <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl text-brand-navy">
-                Learn from people who do this for a living
+                Learn from someone who does this for a living
               </h2>
             </div>
             <Link
               href="/teachers"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-blue-hover shrink-0"
             >
-              View All Teachers <ArrowRight size={16} />
+              Meet the Instructor <ArrowRight size={16} />
             </Link>
           </div>
 
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xs sm:max-w-2xl">
             {teachers.map((t) => (
               <TeacherCard key={t.slug} teacher={t} />
             ))}

@@ -19,6 +19,10 @@ export type Course = {
   whoFor: string;
   curriculum: string[];
   outcomes: string[];
+  // Set true for courses that are announced but not open for enrollment yet.
+  // The course card and detail page will show a "Coming Soon" state and
+  // hide pricing / the enroll button when this is true.
+  comingSoon?: boolean;
   // Optional pricing — only shown on the course page if present.
   originalPrice?: string;
   offerPrice?: string;
@@ -47,11 +51,15 @@ export type Post = {
   category: string;
 };
 
-export const stats = [
-  { label: "Students Trained", value: "1,200+" },
-  { label: "Courses Offered", value: "12" },
-  { label: "Expert Instructors", value: "8" },
-  { label: "Years of Teaching", value: "6+" },
+// Short, non-numeric highlights shown in a badge strip under the hero
+// banner. Kept deliberately free of specific counts (students/courses/
+// years) since those aren't verified numbers yet.
+export const heroHighlights: string[] = [
+  "Online Learning",
+  "Beginner Friendly",
+  "Practical Training",
+  "Flexible Learning",
+  "Certificate Available",
 ];
 
 export const services: Service[] = [
@@ -59,7 +67,7 @@ export const services: Service[] = [
     slug: "software-development",
     title: "Software Development",
     description:
-      "Custom software built around how your business actually works — from internal tools to full systems.",
+      "Custom software and management solutions designed around your business requirements.",
     icon: "Code2",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
@@ -77,9 +85,9 @@ export const services: Service[] = [
   },
   {
     slug: "website-design-development",
-    title: "Website Design & Development",
+    title: "Website Design",
     description:
-      "Fast, mobile-friendly websites for businesses, institutes and personal brands — designed and built end to end.",
+      "Modern, responsive and budget-friendly websites for businesses, brands and personal projects.",
     icon: "Globe",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
@@ -99,7 +107,7 @@ export const services: Service[] = [
     slug: "graphic-design",
     title: "Graphic Design",
     description:
-      "Logos, branding kits and marketing visuals that make a business look as good as its work.",
+      "Professional social media creatives, promotional designs and brand visuals.",
     icon: "PenTool",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop",
     deliverables: ["Logo & brand identity", "Social media creatives", "Print materials"],
@@ -115,7 +123,7 @@ export const services: Service[] = [
     slug: "social-media-marketing",
     title: "Social Media Marketing",
     description:
-      "Content planning, page management and ad campaigns that bring real customers, not just likes.",
+      "Social media content and marketing solutions to help businesses build their online presence.",
     icon: "TrendingUp",
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
@@ -129,6 +137,26 @@ export const services: Service[] = [
       "Design and launch ad campaigns",
       "Track performance weekly",
       "Adjust strategy based on real results",
+    ],
+  },
+  {
+    slug: "seo",
+    title: "SEO",
+    description:
+      "Improve your online visibility and help your business reach the right audience through practical SEO strategies.",
+    icon: "Search",
+    image: "https://images.unsplash.com/photo-1571677246347-5040036b95cc?q=80&w=1200&auto=format&fit=crop",
+    deliverables: [
+      "Keyword & competitor research",
+      "On-page SEO optimization",
+      "Google Business Profile setup",
+    ],
+    process: [
+      "Audit your current site and search visibility",
+      "Research keywords your customers actually search for",
+      "Optimize pages, content and technical SEO",
+      "Track rankings and traffic over time",
+      "Adjust strategy based on results",
     ],
   },
 ];
@@ -158,6 +186,7 @@ export const courses: Course[] = [
       "Understand both frontend and backend development",
       "A portfolio project ready to show employers or clients",
     ],
+    comingSoon: true,
   },
   {
     slug: "graphic-design",
@@ -183,6 +212,7 @@ export const courses: Course[] = [
       "Comfortably use Photoshop, Illustrator and Canva",
       "A design portfolio to show clients or employers",
     ],
+    comingSoon: true,
   },
   {
     slug: "digital-marketing",
@@ -208,6 +238,7 @@ export const courses: Course[] = [
       "Understand SEO well enough to improve a website's ranking",
       "Read campaign analytics and adjust strategy",
     ],
+    comingSoon: true,
   },
   {
     slug: "professional-computer-basics-course",
@@ -237,11 +268,11 @@ export const courses: Course[] = [
       "Better job opportunities: data entry, office admin, receptionist and more",
       "An industry-relevant, certificate-backed skill set",
     ],
-    originalPrice: "Rs. 8,800",
-    offerPrice: "Rs. 4,800",
+    originalPrice: "Rs. 8,600",
+    offerPrice: "Rs. 5,600",
     installments: [
-      { label: "1st Payment (Enroll Now)", amount: "Rs. 3,500" },
-      { label: "2nd Payment (Before 8th Session)", amount: "Rs. 3,000" },
+      { label: "1st Payment (Enroll Now)", amount: "Rs. 4,000" },
+      { label: "2nd Payment (Before 8th Session)", amount: "Rs. 2,600" },
     ],
     gallery: [
       "/images/courses/professional-computer-basics/overview.jpg",
@@ -272,6 +303,7 @@ export const courses: Course[] = [
       "Set up a functioning small office network",
       "Diagnose common hardware and connectivity issues",
     ],
+    comingSoon: true,
   },
   {
     slug: "it-diploma",
@@ -299,95 +331,71 @@ export const courses: Course[] = [
       "Confidence with office software for any workplace",
       "A recognized SF Digital Solutions IT Diploma certificate to support job applications",
     ],
+    comingSoon: true,
   },
 ];
 
 export const teachers: Teacher[] = [
   {
-    slug: "fahim-s",
-    name: "Fahim S.",
-    role: "Lead Instructor — Web Development",
-    bio: "Leads the Web Development and Software Engineering track, teaching modern full-stack tools including Laravel and React.",
+    slug: "fahim",
+    name: "Fahim",
+    role: "Founder & IT / Digital Skills Trainer",
+    bio: "Founder of SF Digital Solutions, focused on practical IT education and digital solutions. Helping students, job seekers and professionals build essential computer and digital skills through beginner-friendly, practical training.",
     image:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    slug: "priya-r",
-    name: "Priya R.",
-    role: "Graphic Design Trainer",
-    bio: "Ten years in branding and print design, now guiding students through Photoshop, Illustrator and design fundamentals.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    slug: "arun-k",
-    name: "Arun K.",
-    role: "Networking & Hardware Specialist",
-    bio: "Certified network technician who trains students on PC hardware, troubleshooting and small-office network setup.",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    slug: "nilani-t",
-    name: "Nilani T.",
-    role: "Digital Marketing Trainer",
-    bio: "Runs the Digital Marketing course, covering SEO, social media strategy and campaign analytics with hands-on projects.",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop",
   },
 ];
 
 export const posts: Post[] = [
   {
-    slug: "5-in-demand-digital-skills-2026",
-    title: "5 In-Demand Digital Skills Every Student Should Learn in 2026",
+    slug: "why-computer-skills-are-important-for-office-jobs",
+    title: "Why Computer Skills Are Important for Office Jobs",
     excerpt:
-      "From web development to digital marketing, here are the skills local employers are actively hiring for this year.",
-    date: "July 2, 2026",
+      "Almost every office role today expects basic computer confidence. Here's why that skill matters more than most job seekers realize.",
+    date: "August 4, 2026",
     author: "SF Digital Solutions",
     category: "Career",
     image:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop",
     content: [
-      "The job market keeps shifting, and the students who move fastest are the ones who pick up practical, demonstrable skills rather than just theory.",
-      "Web development remains at the top of the list. Businesses of every size need someone who can build and maintain a website, and tools like Laravel and React make it possible to go from beginner to job-ready in a few months.",
-      "Digital marketing is close behind. Every business with an online presence needs someone who understands SEO, social media, and how to run an ad campaign that actually converts.",
-      "Graphic design, basic networking knowledge, and comfort with MS Office round out the list — skills that apply across nearly every industry, not just tech.",
-      "Our advice: pick one skill, get genuinely good at it through hands-on practice, and let that be the foundation you build the rest of your career on.",
+      "Walk into almost any office today — a school, a clinic, a small business, a government counter — and the work happens on a computer. Typing a letter, filling a form, preparing a report or sending an email are no longer optional extras; they're the baseline.",
+      "This is exactly why so many job listings quietly assume computer literacy, even for roles that aren't technical on paper. An applicant who can confidently use Word, Excel and email has a real advantage over someone who has to learn on the job, under pressure, while everyone else is watching.",
+      "The good news is that this isn't a hard skill to build. Unlike a full IT degree, basic computer and office skills can be learned in a matter of weeks with the right hands-on training — typing, file management, MS Word, MS Excel, MS PowerPoint and simple design tools like Canva.",
+      "Our Professional Computer Basics Course was built around exactly this gap: practical, job-ready skills for students, job seekers, office staff and business owners, without assuming any prior computer experience.",
     ],
   },
   {
-    slug: "why-web-development-is-a-great-career",
-    title: "Why Web Development Is Still One of the Best Career Paths",
+    slug: "ms-excel-skills-every-beginner-should-learn",
+    title: "MS Excel Skills Every Beginner Should Learn",
     excerpt:
-      "Websites aren't going away. Here's why learning to build them remains one of the most reliable ways to start a tech career.",
-    date: "June 18, 2026",
+      "Excel is one of the most requested workplace skills — here are the fundamentals worth learning first.",
+    date: "August 18, 2026",
     author: "SF Digital Solutions",
-    category: "Web Development",
+    category: "Office Skills",
     image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
     content: [
-      "Every business, school and organisation needs a website or a web application, and that demand hasn't slowed down.",
-      "What has changed is how approachable the field has become. With frameworks like Laravel on the backend and React on the frontend, a motivated student can build a genuinely useful project within their first few months of learning.",
-      "Freelance opportunities are also abundant. Many of our graduates start by building small business websites on the side before moving into full-time roles or running their own small studio.",
-      "If you enjoy solving problems and seeing your work come to life on a screen, web development is one of the most direct paths from classroom to income.",
+      "Excel can look intimidating at first — rows, columns, endless little cells — but almost every office task built on it comes down to a handful of core skills.",
+      "Start with data entry and formatting: entering information cleanly, using consistent formats for dates and numbers, and organizing data into a simple table. This alone saves hours of confusion later.",
+      "Next come formulas and functions. Learning SUM, AVERAGE, COUNT, and simple IF statements covers a surprising amount of everyday office work, from budgets to attendance sheets to sales tracking.",
+      "From there, basic reports — sorting, filtering, and simple charts — let you turn raw data into something a manager can actually read at a glance. These are the exact skills covered hands-on in our Professional Computer Basics Course, alongside Word, PowerPoint and Canva.",
     ],
   },
   {
-    slug: "getting-started-with-crypto-trading",
-    title: "Getting Started with Crypto Trading: A Beginner's Guide",
+    slug: "how-digital-skills-can-improve-your-career",
+    title: "How Digital Skills Can Improve Your Career",
     excerpt:
-      "Thinking about our Crypto Trading Hybrid course? Here's what beginners should understand before they start.",
-    date: "May 30, 2026",
+      "From office basics to design and marketing, practical digital skills open doors across almost every industry.",
+    date: "September 2, 2026",
     author: "SF Digital Solutions",
-    category: "Finance",
+    category: "Career",
     image:
-      "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop",
     content: [
-      "Crypto trading has moved from a niche hobby to something many people want a basic understanding of, whether or not they plan to trade actively.",
-      "Before opening any account, it's worth understanding the fundamentals: what a blockchain actually is, how exchanges work, and why volatility is part of the territory.",
-      "Our Crypto Trading Hybrid program mixes short online lessons with in-person classroom sessions, so students can learn the theory at their own pace and then work through real scenarios with an instructor.",
-      "As with any financial topic, we teach this as education, not investment advice — the goal is for students to understand the space clearly enough to make their own informed decisions.",
+      "Digital skills used to be something only 'tech people' needed. That's no longer true — practical computer and digital skills now support almost every career path, from office administration to retail to healthcare.",
+      "Someone who can prepare a professional CV, organize files properly, build a simple spreadsheet report, and put together a clean presentation stands out immediately, even in non-technical roles.",
+      "Beyond office basics, skills like Canva design or a foundational understanding of social media and digital marketing let people support their workplace — or their own small business — in ways that used to require hiring outside help.",
+      "The goal isn't to turn everyone into a developer or designer overnight. It's to build practical, confidence-boosting skills that make day-to-day work easier and job applications stronger — which is exactly what we focus on at SF Digital Solutions.",
     ],
   },
 ];
