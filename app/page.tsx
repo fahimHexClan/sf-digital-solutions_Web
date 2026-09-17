@@ -17,7 +17,8 @@ import ServicesSection from "@/components/ServicesSection";
 import TeacherCard from "@/components/TeacherCard";
 import BlogCard from "@/components/BlogCard";
 import CourseFinder from "@/components/CourseFinder";
-import { teachers, posts } from "@/lib/data";
+import FreeResources from "@/components/FreeResources";
+import { teachers, posts, freeResources } from "@/lib/data";
 
 const audiences = [
   {
@@ -187,6 +188,32 @@ export default function Home() {
             {teachers.map((t) => (
               <TeacherCard key={t.slug} teacher={t} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Free Resources teaser */}
+      <section className="py-20 sm:py-24">
+        <div className="container-page">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-brand-blue">
+                Free Learning Resources
+              </span>
+              <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl text-brand-navy">
+                Get started before you even enroll
+              </h2>
+            </div>
+            <Link
+              href="/resources"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-blue-hover shrink-0"
+            >
+              View All Resources <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="mt-12">
+            <FreeResources resources={freeResources} limit={4} />
           </div>
         </div>
       </section>

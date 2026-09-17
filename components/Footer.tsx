@@ -121,7 +121,8 @@ export default function Footer() {
           <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
             <li><Link href="/" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Home</Link></li>
-            <li><Link href="/teachers" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Our Teachers</Link></li>
+            <li><Link href="/teachers" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Our Instructor</Link></li>
+            <li><Link href="/resources" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Free Resources</Link></li>
             <li><Link href="/blog" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Blog</Link></li>
             <li><Link href="/contact" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Contact Us</Link></li>
           </ul>

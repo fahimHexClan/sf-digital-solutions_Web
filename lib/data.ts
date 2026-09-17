@@ -32,6 +32,45 @@ export type Course = {
   gallery?: string[];
 };
 
+export type Resource = {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string; // lucide icon name
+  fileType: string; // e.g. "PDF Guide", "Video Lesson"
+};
+
+export const freeResources: Resource[] = [
+  {
+    slug: "excel-formula-cheat-sheet",
+    title: "Excel Formula Cheat Sheet",
+    description: "The most-used Excel formulas for everyday office work, in one quick-reference sheet.",
+    icon: "FileSpreadsheet",
+    fileType: "PDF Guide",
+  },
+  {
+    slug: "ms-word-shortcuts",
+    title: "MS Word Shortcuts",
+    description: "Keyboard shortcuts that speed up formatting, editing and document navigation in Word.",
+    icon: "FileText",
+    fileType: "PDF Guide",
+  },
+  {
+    slug: "keyboard-shortcuts-guide",
+    title: "Keyboard Shortcuts Guide",
+    description: "Essential Windows and general typing shortcuts every beginner should know.",
+    icon: "Keyboard",
+    fileType: "PDF Guide",
+  },
+  {
+    slug: "computer-basics-guide",
+    title: "Computer Basics Guide",
+    description: "A simple starting-point guide to files, folders and everyday computer tasks.",
+    icon: "Monitor",
+    fileType: "PDF Guide",
+  },
+];
+
 export type Teacher = {
   slug: string;
   name: string;
