@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { GraduationCap, MapPin, Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { courses, services } from "@/lib/data";
 
 function Facebook(props: { size?: number }) {
@@ -38,9 +39,15 @@ export default function Footer() {
 
       <div className="relative container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-sky text-white shadow-md shadow-brand-blue/30">
-              <GraduationCap size={20} />
+          <div className="flex items-center gap-2.5 mb-4">
+            <span className="relative h-10 w-10 shrink-0">
+              <Image
+                src="/images/brand/logo.png"
+                alt="SF Digital Solutions"
+                fill
+                sizes="40px"
+                className="object-contain"
+              />
             </span>
             <span className="font-display font-bold text-white text-lg">
               SF Digital Solutions

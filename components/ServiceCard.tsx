@@ -19,12 +19,6 @@ const glows = [
   "group-hover:shadow-brand-navy/50",
   "group-hover:shadow-brand-blue/40",
 ];
-const tints = [
-  "bg-brand-blue/30",
-  "bg-brand-sky/30",
-  "bg-brand-navy/40",
-  "bg-brand-blue/30",
-];
 
 export default function ServiceCard({
   service,
@@ -36,7 +30,6 @@ export default function ServiceCard({
   const Icon = iconMap[service.icon as keyof typeof iconMap];
   const accent = accents[index % accents.length];
   const glow = glows[index % glows.length];
-  const tint = tints[index % tints.length];
 
   return (
     <Link
@@ -51,9 +44,9 @@ export default function ServiceCard({
           sizes="(max-width: 640px) 100vw, 320px"
           className="object-cover scale-105 group-hover:scale-115 transition-transform duration-500"
         />
-        {/* Duotone color wash matching the card's accent */}
-        <div className={`absolute inset-0 ${tint} mix-blend-multiply`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent" />
+        {/* Soft fade only at the very bottom, just enough to blend the
+            overlapping icon badge — the photo itself stays clear. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/55 via-transparent to-transparent" />
       </div>
 
       {/* Icon straddles the image/content boundary for a layered, premium feel */}

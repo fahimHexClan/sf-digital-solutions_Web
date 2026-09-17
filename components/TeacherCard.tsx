@@ -10,7 +10,7 @@ export default function TeacherCard({ teacher }: { teacher: Teacher }) {
           alt={teacher.name}
           fill
           sizes="(max-width: 640px) 100vw, 300px"
-          className="object-cover"
+          className="object-cover object-top"
         />
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-navy/70 to-transparent" />
       </div>

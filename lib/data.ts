@@ -287,7 +287,7 @@ export const courses: Course[] = [
     icon: "Monitor",
     duration: "6 Weeks",
     level: "Beginner to Advanced",
-    image: "/images/courses/professional-computer-basics/cover-robot.jpg",
+    image: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1200&auto=format&fit=crop",
     whoFor:
       "Designed for beginners, students, job seekers, office staff and business owners who want real, job-ready computer skills — no prior experience needed.",
     curriculum: [
@@ -312,10 +312,6 @@ export const courses: Course[] = [
     installments: [
       { label: "1st Payment (Enroll Now)", amount: "Rs. 4,000" },
       { label: "2nd Payment (Before 8th Session)", amount: "Rs. 2,600" },
-    ],
-    gallery: [
-      "/images/courses/professional-computer-basics/overview.jpg",
-      "/images/courses/professional-computer-basics/certificate.jpg",
     ],
   },
   {
@@ -380,8 +376,7 @@ export const teachers: Teacher[] = [
     name: "Fahim",
     role: "Founder & IT / Digital Skills Trainer",
     bio: "Founder of SF Digital Solutions, focused on practical IT education and digital solutions. Helping students, job seekers and professionals build essential computer and digital skills through beginner-friendly, practical training.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
+    image: "/images/team/fahim.jpg",
   },
 ];
 

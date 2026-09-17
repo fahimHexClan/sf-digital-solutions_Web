@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -20,9 +21,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
       <div className="container-page flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-navy text-white">
-            <GraduationCap size={20} />
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <span className="relative h-11 w-11 shrink-0">
+            <Image
+              src="/images/brand/logo.png"
+              alt="SF Digital Solutions"
+              fill
+              sizes="44px"
+              className="object-contain"
+              priority
+            />
           </span>
           <span className="font-display font-bold text-brand-navy text-lg leading-tight">
             SF Digital
