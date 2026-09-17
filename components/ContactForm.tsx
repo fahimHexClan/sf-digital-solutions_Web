@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Send } from "lucide-react";
 
 const courseOptions = [
   "Web Development",
@@ -19,14 +19,39 @@ const serviceOptions = [
   "Social Media Marketing",
 ];
 
+// Update this if the WhatsApp number is different from the contact phone.
+const WHATSAPP_NUMBER = "94785194631";
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // NOTE: wire this up to your backend / email service (e.g. an API route,
-    // Formspree, or a Laravel endpoint) to actually receive submissions.
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name")?.toString().trim() || "";
+    const phone = data.get("phone")?.toString().trim() || "";
+    const email = data.get("email")?.toString().trim() || "";
+    const course = data.get("course")?.toString().trim() || "";
+    const message = data.get("message")?.toString().trim() || "";
+
+    const lines = [
+      "Hi! I'd like to get in touch with SF Digital Solutions.",
+      `Name: ${name}`,
+      phone && `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Reaching out about: ${course}`,
+      message && `Message: ${message}`,
+    ].filter(Boolean);
+
+    const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      lines.join("\n")
+    )}`;
+    window.open(href, "_blank", "noopener,noreferrer");
+
     setSubmitted(true);
+    form.reset();
   }
 
   if (submitted) {
@@ -36,10 +61,11 @@ export default function ContactForm() {
           <CheckCircle2 size={32} className="text-white" />
         </span>
         <h3 className="mt-4 font-display font-semibold text-xl text-brand-navy">
-          Message sent
+          Opening WhatsApp&hellip;
         </h3>
         <p className="mt-2 text-sm text-brand-slate max-w-sm">
-          Thanks for reaching out. Our team will get back to you shortly.
+          Your message is ready in WhatsApp — just hit send there and our
+          team will get back to you shortly.
         </p>
         <button
           onClick={() => setSubmitted(false)}
@@ -132,9 +158,9 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-blue to-brand-sky px-7 py-3 font-semibold text-white shadow-md shadow-brand-blue/25 hover:shadow-lg hover:shadow-brand-blue/35 transition-shadow"
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-sky px-7 py-3 font-semibold text-white shadow-md shadow-brand-blue/25 hover:shadow-lg hover:shadow-brand-blue/35 transition-shadow"
       >
-        Send Message
+        Send Message <Send size={16} />
       </button>
     </form>
   );

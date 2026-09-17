@@ -52,12 +52,22 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link
-          href="https://sf-digital-solutions-lk-registratio.vercel.app"
-          className="hidden md:inline-flex items-center rounded-md bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
-        >
-          Enroll Now
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="https://sfdigitalsolutionslk-lms.web.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:inline-flex items-center rounded-md border border-brand-blue px-5 py-2.5 text-sm font-semibold text-brand-blue hover:bg-brand-tint transition-colors"
+          >
+            LMS Login
+          </Link>
+          <Link
+            href="https://sf-digital-solutions-lk-registratio.vercel.app"
+            className="hidden md:inline-flex items-center rounded-md bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+          >
+            Enroll Now
+          </Link>
+        </div>
 
         <button
           aria-label={open ? "Close menu" : "Open menu"}
@@ -84,9 +94,18 @@ export default function Navbar() {
             <Link
               href="https://sf-digital-solutions-lk-registratio.vercel.app"
               onClick={() => setOpen(false)}
-              className="mt-4 mb-2 inline-flex items-center justify-center rounded-md bg-brand-blue px-5 py-3 text-sm font-semibold text-white"
+              className="mt-4 inline-flex items-center justify-center rounded-md bg-brand-blue px-5 py-3 text-sm font-semibold text-white"
             >
               Enroll Now
+            </Link>
+            <Link
+              href="https://sfdigitalsolutionslk-lms.web.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2.5 mb-2 inline-flex items-center justify-center rounded-md border border-brand-blue px-5 py-3 text-sm font-semibold text-brand-blue"
+            >
+              LMS Login
             </Link>
           </nav>
         </div>
