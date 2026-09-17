@@ -22,13 +22,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
       <div className="container-page flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="relative h-11 w-11 shrink-0">
+          <span className="relative h-11 w-11 shrink-0 rounded-full overflow-hidden ring-1 ring-slate-100">
             <Image
               src="/images/brand/logo.png"
               alt="SF Digital Solutions"
               fill
               sizes="44px"
-              className="object-contain"
+              className="object-cover"
               priority
             />
           </span>

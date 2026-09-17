@@ -40,13 +40,13 @@ export default function Footer() {
       <div className="relative container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-4">
-            <span className="relative h-10 w-10 shrink-0">
+            <span className="relative h-10 w-10 shrink-0 rounded-full overflow-hidden ring-1 ring-white/10">
               <Image
                 src="/images/brand/logo.png"
                 alt="SF Digital Solutions"
                 fill
                 sizes="40px"
-                className="object-contain"
+                className="object-cover"
               />
             </span>
             <span className="font-display font-bold text-white text-lg">

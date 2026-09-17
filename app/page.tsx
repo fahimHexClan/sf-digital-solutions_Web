@@ -18,6 +18,7 @@ import TeacherCard from "@/components/TeacherCard";
 import BlogCard from "@/components/BlogCard";
 import CourseFinder from "@/components/CourseFinder";
 import FreeResources from "@/components/FreeResources";
+import BatchBanner from "@/components/BatchBanner";
 import { teachers, posts, freeResources } from "@/lib/data";
 
 const audiences = [
@@ -84,6 +85,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <BatchBanner />
 
       {/* What are you looking for? — persona quick nav */}
       <section className="py-16 sm:py-20 bg-brand-tint/60">
