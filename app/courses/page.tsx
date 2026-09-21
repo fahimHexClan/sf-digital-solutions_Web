@@ -6,7 +6,10 @@ import PageCover from "@/components/PageCover";
 import { courses } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Courses — SF Digital Solutions",
+  title: "Courses",
+  description:
+    "Practical computer, IT and digital skills courses from SF Digital Solutions — including Web Development, Graphic Design, Digital Marketing and our Professional Computer Basics Course.",
+  alternates: { canonical: "/courses" },
 };
 
 export default function CoursesPage() {

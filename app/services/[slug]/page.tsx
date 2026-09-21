@@ -13,6 +13,7 @@ import {
   Search,
 } from "lucide-react";
 import { services } from "@/lib/data";
+import { SITE_URL } from "@/lib/seo";
 import ServiceCard from "@/components/ServiceCard";
 
 const iconMap = { Code2, Globe, PenTool, TrendingUp, Search };
@@ -28,8 +29,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
+  if (!service) return { title: "Service" };
   return {
-    title: service ? `${service.title} — SF Digital Solutions` : "Service",
+    title: service.title,
+    description: service.description,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: service.title,
+      description: service.description,
+      type: "website",
+      images: [{ url: service.image }],
+    },
   };
 }
 
@@ -45,8 +55,27 @@ export default async function ServiceDetailPage({
   const Icon = iconMap[service.icon as keyof typeof iconMap];
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: service.title,
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: "SF Digital Solutions",
+      sameAs: SITE_URL,
+    },
+    areaServed: "LK",
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Banner */}
       <section className="relative h-64 sm:h-80 w-full">
         <Image

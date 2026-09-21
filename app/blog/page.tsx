@@ -4,7 +4,10 @@ import PageCover from "@/components/PageCover";
 import { posts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog — SF Digital Solutions",
+  title: "Blog",
+  description:
+    "Practical tips and guides on computer skills, office software and digital careers from SF Digital Solutions.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

@@ -4,7 +4,10 @@ import ContactForm from "@/components/ContactForm";
 import PageCover from "@/components/PageCover";
 
 export const metadata: Metadata = {
-  title: "Contact — SF Digital Solutions",
+  title: "Contact",
+  description:
+    "Get in touch with SF Digital Solutions — ask about courses, batches, or business services. Reach us on WhatsApp, email, or the contact form.",
+  alternates: { canonical: "/contact" },
 };
 
 const info = [

@@ -6,7 +6,10 @@ import PageCover from "@/components/PageCover";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services — SF Digital Solutions",
+  title: "Services",
+  description:
+    "Website design, software development, graphic design, social media marketing and SEO services from SF Digital Solutions — for businesses across Sri Lanka.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

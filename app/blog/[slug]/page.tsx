@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react";
 import { posts } from "@/lib/data";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import BlogCard from "@/components/BlogCard";
 
 export function generateStaticParams() {
@@ -17,8 +18,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
+  if (!post) return { title: "Blog" };
   return {
-    title: post ? `${post.title} — SF Digital Solutions` : "Blog",
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [{ url: post.image }],
+    },
   };
 }
 
@@ -33,8 +45,25 @@ export default async function BlogPostPage({
 
   const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    author: { "@type": "Organization", name: post.author },
+    publisher: { "@type": "Organization", name: SITE_NAME },
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Banner */}
       <section className="relative h-64 sm:h-80 w-full">
         <Image

@@ -4,9 +4,10 @@ import FreeResources from "@/components/FreeResources";
 import { freeResources } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Free Resources — SF Digital Solutions",
+  title: "Free Resources",
   description:
     "Free downloadable guides on Excel, Word, keyboard shortcuts and computer basics from SF Digital Solutions.",
+  alternates: { canonical: "/resources" },
 };
 
 export default function ResourcesPage() {

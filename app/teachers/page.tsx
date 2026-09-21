@@ -4,7 +4,10 @@ import PageCover from "@/components/PageCover";
 import { teachers } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Our Instructor — SF Digital Solutions",
+  title: "Our Instructor",
+  description:
+    "Meet the instructor behind SF Digital Solutions' practical, beginner-friendly computer and digital skills training.",
+  alternates: { canonical: "/teachers" },
 };
 
 export default function TeachersPage() {

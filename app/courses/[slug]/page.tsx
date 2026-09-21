@@ -17,6 +17,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { courses } from "@/lib/data";
+import { SITE_URL } from "@/lib/seo";
 import CourseCard from "@/components/CourseCard";
 
 const iconMap = { Code2, PenTool, TrendingUp, Monitor, Network, LineChart, GraduationCap };
@@ -32,8 +33,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const course = courses.find((c) => c.slug === slug);
+  if (!course) return { title: "Course" };
   return {
-    title: course ? `${course.title} — SF Digital Solutions` : "Course",
+    title: course.title,
+    description: course.description,
+    alternates: { canonical: `/courses/${course.slug}` },
+    openGraph: {
+      title: course.title,
+      description: course.description,
+      type: "website",
+      images: [{ url: course.image }],
+    },
   };
 }
 
@@ -49,8 +59,36 @@ export default async function CourseDetailPage({
   const Icon = iconMap[course.icon as keyof typeof iconMap];
   const related = courses.filter((c) => c.slug !== course.slug).slice(0, 3);
 
+  const courseJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: course.title,
+    description: course.description,
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SF Digital Solutions",
+      sameAs: SITE_URL,
+    },
+    ...(course.comingSoon
+      ? {}
+      : {
+          offers: {
+            "@type": "Offer",
+            category: "Paid",
+            price: (course.offerPrice || "").replace(/[^0-9.]/g, ""),
+            priceCurrency: "LKR",
+            availability: "https://schema.org/InStock",
+          },
+        }),
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+      />
       {/* Banner */}
       <section className="relative h-64 sm:h-80 w-full">
         <Image
