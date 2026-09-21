@@ -19,6 +19,11 @@ import BlogCard from "@/components/BlogCard";
 import CourseFinder from "@/components/CourseFinder";
 import FreeResources from "@/components/FreeResources";
 import BatchBanner from "@/components/BatchBanner";
+import TrustBadges from "@/components/TrustBadges";
+import Testimonials from "@/components/Testimonials";
+import FAQSection from "@/components/FAQSection";
+import BusinessCTA from "@/components/BusinessCTA";
+import { faqs } from "@/lib/faq";
 import { teachers, posts, freeResources } from "@/lib/data";
 
 const audiences = [
@@ -86,6 +91,7 @@ export default function Home() {
     <>
       <Hero />
       <BatchBanner />
+      <TrustBadges />
 
       {/* What are you looking for? — persona quick nav */}
       <section className="py-16 sm:py-20 bg-brand-tint/60">
@@ -166,8 +172,10 @@ export default function Home() {
         </div>
       </section>
 
+      <Testimonials />
+
       {/* Teacher preview */}
-      <section className="py-20 sm:py-24 bg-brand-tint/60">
+      <section className="py-20 sm:py-24">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -195,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* Free Resources teaser */}
-      <section className="py-20 sm:py-24">
+      <section className="py-20 sm:py-24 bg-brand-tint/60">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -248,24 +256,43 @@ export default function Home() {
         </div>
       </section>
 
+      <FAQSection />
+      <BusinessCTA />
+
       {/* CTA */}
-      <section className="bg-brand-navy">
+      <section className="bg-gradient-to-r from-brand-blue to-brand-sky">
         <div className="container-page py-16 text-center">
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-white max-w-xl mx-auto">
             Ready to learn a skill that actually pays off?
           </h2>
-          <p className="mt-4 text-blue-100/80 max-w-lg mx-auto">
+          <p className="mt-4 text-blue-50/90 max-w-lg mx-auto">
             Batches start every month. Reach out and we'll help you pick the
             right course to start with.
           </p>
           <Link
             href="https://sf-digital-solutions-lk-registratio.vercel.app"
-            className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-blue px-7 py-3.5 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+            className="mt-8 inline-flex items-center gap-2 rounded-md bg-white px-7 py-3.5 font-semibold text-brand-blue hover:bg-blue-50 transition-colors"
           >
             Enroll Now <ArrowRight size={18} />
           </Link>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: { "@type": "Answer", text: f.answer },
+            })),
+          }),
+        }}
+      />
     </>
   );
 }

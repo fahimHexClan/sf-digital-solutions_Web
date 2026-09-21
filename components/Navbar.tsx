@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { trackEnrollClick } from "@/lib/analytics";
 
 const links = [
   { href: "/", label: "Home" },
@@ -63,6 +64,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="https://sf-digital-solutions-lk-registratio.vercel.app"
+            onClick={() => trackEnrollClick("navbar_desktop")}
             className="hidden md:inline-flex items-center rounded-md bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
           >
             Enroll Now
@@ -93,7 +95,10 @@ export default function Navbar() {
             ))}
             <Link
               href="https://sf-digital-solutions-lk-registratio.vercel.app"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                trackEnrollClick("navbar_mobile");
+              }}
               className="mt-4 inline-flex items-center justify-center rounded-md bg-brand-blue px-5 py-3 text-sm font-semibold text-white"
             >
               Enroll Now

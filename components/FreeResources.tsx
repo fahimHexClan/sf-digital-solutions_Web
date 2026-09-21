@@ -11,6 +11,7 @@ import {
   Send,
 } from "lucide-react";
 import type { Resource } from "@/lib/data";
+import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 
 const iconMap = { FileSpreadsheet, FileText, Keyboard, Monitor };
 
@@ -62,6 +63,8 @@ export default function FreeResources({
       message
     )}`;
     window.open(waHref, "_blank", "noopener,noreferrer");
+    trackEvent("resource_download", { resource: activeResource.slug });
+    trackWhatsAppClick("free_resources");
     closeModal();
   }
 

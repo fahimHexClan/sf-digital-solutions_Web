@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const courseOptions = [
   "Web Development",
@@ -49,6 +50,7 @@ export default function ContactForm() {
       lines.join("\n")
     )}`;
     window.open(href, "_blank", "noopener,noreferrer");
+    trackWhatsAppClick("contact_form");
 
     setSubmitted(true);
     form.reset();

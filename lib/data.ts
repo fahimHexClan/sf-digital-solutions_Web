@@ -27,6 +27,8 @@ export type Course = {
   originalPrice?: string;
   offerPrice?: string;
   installments?: { label: string; amount: string }[];
+  // Optional link to a downloadable syllabus PDF.
+  syllabusUrl?: string;
   // Optional extra images (e.g. real course material graphics)
   // shown in a gallery on the course detail page.
   gallery?: string[];
@@ -73,6 +75,45 @@ export const freeResources: Resource[] = [
     icon: "Monitor",
     fileType: "PDF Guide",
     fileUrl: "/resources/computer-basics-guide.pdf",
+  },
+];
+
+export type Testimonial = {
+  name: string;
+  context: string; // course or how they know SF
+  quote: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Lavan",
+    context: "Basic Computer Course student",
+    quote:
+      "Studying the Basic Computer Course at SF Digital Solutions was a really great experience. Sir Fahim explained everything clearly and patiently, and cleared every doubt I had. Every lesson was easy to understand, and now I feel much more confident using a computer. I recommend SF Digital Solutions to anyone who wants to learn computer basics.",
+  },
+  {
+    name: "H. M. Anfas",
+    context: "Computer Basics student",
+    quote:
+      "Thank you for teaching me Microsoft Word, Excel, PowerPoint and Canva in such a simple and clear way. Every lesson was explained with practical examples, which made it easy to understand, and I never hesitated to ask questions. I now have the skills to apply what I learned at work and create professional presentations and designs.",
+  },
+  {
+    name: "Babani",
+    context: "Computer Basics student",
+    quote:
+      "Choosing SF Digital Solutions is the real reason I now have computer knowledge. I didn't even know how to use a keyboard before, but now I can type quickly and confidently. I can go for any job without fear now, all because everything was taught in such an easy way. Thank you so much, sir!",
+  },
+  {
+    name: "Mohamed Ajmal",
+    context: "Former student",
+    quote:
+      "I'm a former student of SF Digital Solutions. The instructor has amazing patience and taught me a lot of things I didn't know before, in a simple and easy way that was genuinely useful. I recommend this course to anyone who wants to learn at their own convenient pace — the classes are simple, clear and easy to understand.",
+  },
+  {
+    name: "Nishanthy",
+    context: "Student",
+    quote:
+      "Your service is immeasurable, and your dedication deserves praise. Your guidance will always be a light for us, and your care shows in every effort you make for your students' future. Our heartfelt thanks and appreciation for your invaluable service.",
   },
 ];
 
@@ -318,6 +359,7 @@ export const courses: Course[] = [
       { label: "1st Payment (Enroll Now)", amount: "Rs. 4,000" },
       { label: "2nd Payment (Before 8th Session)", amount: "Rs. 2,600" },
     ],
+    syllabusUrl: "/resources/professional-computer-basics-syllabus.pdf",
   },
   {
     slug: "networking-hardware",

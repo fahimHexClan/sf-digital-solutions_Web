@@ -15,6 +15,7 @@ import {
   Network,
   LineChart,
   GraduationCap,
+  FileDown,
 } from "lucide-react";
 import { courses } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
@@ -275,6 +276,16 @@ export default async function CourseDetailPage({
                 >
                   Enroll Now <ArrowRight size={18} />
                 </Link>
+              )}
+
+              {course.syllabusUrl && (
+                <a
+                  href={course.syllabusUrl}
+                  download
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-md border border-brand-blue px-6 py-3 font-semibold text-brand-blue hover:bg-brand-tint transition-colors"
+                >
+                  <FileDown size={18} /> Download Syllabus (PDF)
+                </a>
               )}
             </div>
           </div>
