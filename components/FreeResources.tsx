@@ -49,10 +49,19 @@ export default function FreeResources({
       `Email: ${email}`,
     ].join("\n");
 
-    const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    // Trigger the real file download immediately...
+    const link = document.createElement("a");
+    link.href = activeResource.fileUrl;
+    link.download = "";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // ...and also let the team know via WhatsApp who downloaded it.
+    const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       message
     )}`;
-    window.open(href, "_blank", "noopener,noreferrer");
+    window.open(waHref, "_blank", "noopener,noreferrer");
     closeModal();
   }
 
@@ -161,11 +170,11 @@ export default function FreeResources({
                 type="submit"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
               >
-                Send via WhatsApp <Send size={16} />
+                Download Now <Send size={16} />
               </button>
               <p className="text-[11px] text-brand-slate text-center">
-                This opens WhatsApp with your request pre-filled — we&apos;ll
-                send the file there.
+                Your download starts right away — we&apos;ll also open
+                WhatsApp so our team knows to follow up.
               </p>
             </form>
           </div>

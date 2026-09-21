@@ -38,6 +38,7 @@ export type Resource = {
   description: string;
   icon: string; // lucide icon name
   fileType: string; // e.g. "PDF Guide", "Video Lesson"
+  fileUrl: string; // path to the actual downloadable file
 };
 
 export const freeResources: Resource[] = [
@@ -47,6 +48,7 @@ export const freeResources: Resource[] = [
     description: "The most-used Excel formulas for everyday office work, in one quick-reference sheet.",
     icon: "FileSpreadsheet",
     fileType: "PDF Guide",
+    fileUrl: "/resources/excel-formula-cheat-sheet.pdf",
   },
   {
     slug: "ms-word-shortcuts",
@@ -54,6 +56,7 @@ export const freeResources: Resource[] = [
     description: "Keyboard shortcuts that speed up formatting, editing and document navigation in Word.",
     icon: "FileText",
     fileType: "PDF Guide",
+    fileUrl: "/resources/ms-word-shortcuts.pdf",
   },
   {
     slug: "keyboard-shortcuts-guide",
@@ -61,6 +64,7 @@ export const freeResources: Resource[] = [
     description: "Essential Windows and general typing shortcuts every beginner should know.",
     icon: "Keyboard",
     fileType: "PDF Guide",
+    fileUrl: "/resources/keyboard-shortcuts-guide.pdf",
   },
   {
     slug: "computer-basics-guide",
@@ -68,6 +72,7 @@ export const freeResources: Resource[] = [
     description: "A simple starting-point guide to files, folders and everyday computer tasks.",
     icon: "Monitor",
     fileType: "PDF Guide",
+    fileUrl: "/resources/computer-basics-guide.pdf",
   },
 ];
 
