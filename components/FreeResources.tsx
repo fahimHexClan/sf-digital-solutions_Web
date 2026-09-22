@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Resource } from "@/lib/data";
 import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
+import { scoreLead } from "@/lib/leadScore";
 
 const iconMap = { FileSpreadsheet, FileText, Keyboard, Monitor };
 
@@ -43,7 +44,10 @@ export default function FreeResources({
     e.preventDefault();
     if (!activeResource) return;
 
+    const leadTag = scoreLead({ source: "free_resources" });
+
     const message = [
+      `[${leadTag}]`,
       `Hi! I'd like the free resource: ${activeResource.title}`,
       `Name: ${name}`,
       `WhatsApp: ${whatsapp}`,

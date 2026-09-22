@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { scoreLead } from "@/lib/leadScore";
 
 const courseOptions = [
   "Web Development",
@@ -15,9 +16,10 @@ const courseOptions = [
 
 const serviceOptions = [
   "Software Development",
-  "Website Design & Development",
-  "Graphic Design (Business)",
+  "Website Design",
+  "Graphic Design",
   "Social Media Marketing",
+  "SEO",
 ];
 
 // Update this if the WhatsApp number is different from the contact phone.
@@ -34,15 +36,26 @@ export default function ContactForm() {
     const name = data.get("name")?.toString().trim() || "";
     const phone = data.get("phone")?.toString().trim() || "";
     const email = data.get("email")?.toString().trim() || "";
-    const course = data.get("course")?.toString().trim() || "";
+    const rawInterest = data.get("course")?.toString().trim() || "";
+    const [kind, interestLabel] = rawInterest.includes(":")
+      ? (rawInterest.split(":") as ["course" | "service", string])
+      : (["course", rawInterest] as ["course" | "service", string]);
     const message = data.get("message")?.toString().trim() || "";
 
+    const leadTag = scoreLead({
+      source: "contact_form",
+      interest: interestLabel,
+      kind,
+      hasMessage: message.length > 0,
+    });
+
     const lines = [
+      `[${leadTag}]`,
       "Hi! I'd like to get in touch with SF Digital Solutions.",
       `Name: ${name}`,
       phone && `Phone: ${phone}`,
       `Email: ${email}`,
-      `Reaching out about: ${course}`,
+      `Reaching out about: ${interestLabel}`,
       message && `Message: ${message}`,
     ].filter(Boolean);
 
@@ -134,12 +147,16 @@ export default function ContactForm() {
         >
           <optgroup label="A Course">
             {courseOptions.map((c) => (
-              <option key={c}>{c}</option>
+              <option key={`course:${c}`} value={`course:${c}`}>
+                {c}
+              </option>
             ))}
           </optgroup>
           <optgroup label="A Service / Project">
             {serviceOptions.map((s) => (
-              <option key={s}>{s}</option>
+              <option key={`service:${s}`} value={`service:${s}`}>
+                {s}
+              </option>
             ))}
           </optgroup>
         </select>

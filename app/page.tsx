@@ -249,7 +249,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((p) => (
+            {posts.slice(0, 3).map((p) => (
               <BlogCard key={p.slug} post={p} />
             ))}
           </div>

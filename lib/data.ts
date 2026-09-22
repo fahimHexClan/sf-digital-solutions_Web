@@ -429,20 +429,73 @@ export const teachers: Teacher[] = [
 
 export const posts: Post[] = [
   {
-    slug: "why-computer-skills-are-important-for-office-jobs",
-    title: "Why Computer Skills Are Important for Office Jobs",
+    slug: "best-digital-skills-for-beginners-in-sri-lanka",
+    title: "Best Digital Skills for Beginners in Sri Lanka",
     excerpt:
-      "Almost every office role today expects basic computer confidence. Here's why that skill matters more than most job seekers realize.",
-    date: "August 4, 2026",
+      "Not sure where to start with digital skills? Here's a practical order to learn them in.",
+    date: "September 20, 2026",
+    author: "SF Digital Solutions",
+    category: "Office Skills",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "'Digital skills' can sound like a huge, vague category. In practice, for most beginners in Sri Lanka looking for office or freelance work, it breaks down into a fairly short, practical list — and the order you learn them in matters.",
+      "Start with computer fundamentals and typing. It sounds basic, but comfortable, accurate typing and knowing your way around files and folders is the foundation everything else sits on.",
+      "Next, MS Office — Word for documents and CVs, Excel for data and simple reports, PowerPoint for presentations. These three alone qualify you for a huge range of office, admin and data-entry roles.",
+      "From there, branch out based on interest: Canva and basic design skills if you enjoy visual work, or a light introduction to digital marketing and social media if you're drawn to business and communication. Both build naturally on the office foundation you already have.",
+      "This is the exact progression we follow in our Professional Computer Basics Course — starting from zero assumptions and building toward genuinely useful, job-ready skills.",
+    ],
+  },
+  {
+    slug: "computer-courses-after-al-what-should-you-learn",
+    title: "Computer Courses After A/L: What Should You Learn?",
+    excerpt:
+      "Finished your A/Ls and not sure what to study next? Here's how to think about practical computer courses.",
+    date: "September 16, 2026",
     author: "SF Digital Solutions",
     category: "Career",
     image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=900&auto=format&fit=crop",
     content: [
-      "Walk into almost any office today — a school, a clinic, a small business, a government counter — and the work happens on a computer. Typing a letter, filling a form, preparing a report or sending an email are no longer optional extras; they're the baseline.",
-      "This is exactly why so many job listings quietly assume computer literacy, even for roles that aren't technical on paper. An applicant who can confidently use Word, Excel and email has a real advantage over someone who has to learn on the job, under pressure, while everyone else is watching.",
-      "The good news is that this isn't a hard skill to build. Unlike a full IT degree, basic computer and office skills can be learned in a matter of weeks with the right hands-on training — typing, file management, MS Word, MS Excel, MS PowerPoint and simple design tools like Canva.",
-      "Our Professional Computer Basics Course was built around exactly this gap: practical, job-ready skills for students, job seekers, office staff and business owners, without assuming any prior computer experience.",
+      "Finishing A/Ls in Sri Lanka often comes with the same question: what next? Waiting for university results can mean months of uncertainty — and that time is exactly when a practical skills course pays off the most.",
+      "The mistake many school leavers make is jumping straight into a narrow, advanced course before they've mastered the basics. If you can't yet type confidently, format a document properly, or build a simple spreadsheet, that's the place to start — not a specialised course that assumes you already can.",
+      "A solid computer basics foundation (MS Word, Excel, PowerPoint, plus a design tool like Canva) makes every course after it easier, whether that's web development, graphic design or digital marketing. It also makes you immediately useful for part-time or entry-level office work while you wait on university admissions.",
+      "Our Professional Computer Basics Course was built with exactly this stage of life in mind — a focused, 6-week foundation that's useful on its own and a strong base for whatever you study next.",
+    ],
+  },
+  {
+    slug: "10-excel-functions-every-office-worker-should-know",
+    title: "10 Excel Functions Every Office Worker Should Know",
+    excerpt:
+      "Beyond SUM and AVERAGE — the functions that separate a confident Excel user from a beginner.",
+    date: "September 10, 2026",
+    author: "SF Digital Solutions",
+    category: "Office Skills",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "Most people learn SUM and AVERAGE early and stop there. But a handful of other functions do most of the heavy lifting in real office spreadsheets — and they're not hard to pick up once you've seen them in action.",
+      "IF lets a cell react to a condition — marking an order 'Late' or 'On Time' automatically instead of typing it by hand. COUNTIF and SUMIF go a step further, counting or adding values that match a condition, like totaling sales for one branch out of a long list.",
+      "VLOOKUP (or its modern cousin, INDEX/MATCH) is the one that impresses managers — it looks up a value in one table and pulls back matching information from another, which is exactly how price lists, staff records and inventory sheets are usually connected.",
+      "Rounding out the list: TEXT for formatting numbers and dates consistently, TRIM for cleaning messy pasted data, TODAY for dates that update automatically, IFERROR for hiding ugly error messages, and CONCATENATE for joining text from separate cells.",
+      "None of these need to be memorised in one sitting. In our Professional Computer Basics Course, they're taught the way they're actually used — through small, realistic exercises, not abstract formulas on a whiteboard.",
+    ],
+  },
+  {
+    slug: "how-digital-skills-can-improve-your-career",
+    title: "How Digital Skills Can Improve Your Career",
+    excerpt:
+      "From office basics to design and marketing, practical digital skills open doors across almost every industry.",
+    date: "September 2, 2026",
+    author: "SF Digital Solutions",
+    category: "Career",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "Digital skills used to be something only 'tech people' needed. That's no longer true — practical computer and digital skills now support almost every career path, from office administration to retail to healthcare.",
+      "Someone who can prepare a professional CV, organize files properly, build a simple spreadsheet report, and put together a clean presentation stands out immediately, even in non-technical roles.",
+      "Beyond office basics, skills like Canva design or a foundational understanding of social media and digital marketing let people support their workplace — or their own small business — in ways that used to require hiring outside help.",
+      "The goal isn't to turn everyone into a developer or designer overnight. It's to build practical, confidence-boosting skills that make day-to-day work easier and job applications stronger — which is exactly what we focus on at SF Digital Solutions.",
     ],
   },
   {
@@ -461,22 +514,21 @@ export const posts: Post[] = [
       "Next come formulas and functions. Learning SUM, AVERAGE, COUNT, and simple IF statements covers a surprising amount of everyday office work, from budgets to attendance sheets to sales tracking.",
       "From there, basic reports — sorting, filtering, and simple charts — let you turn raw data into something a manager can actually read at a glance. These are the exact skills covered hands-on in our Professional Computer Basics Course, alongside Word, PowerPoint and Canva.",
     ],
-  },
-  {
-    slug: "how-digital-skills-can-improve-your-career",
-    title: "How Digital Skills Can Improve Your Career",
+  },  {
+    slug: "why-computer-skills-are-important-for-office-jobs",
+    title: "Why Computer Skills Are Important for Office Jobs",
     excerpt:
-      "From office basics to design and marketing, practical digital skills open doors across almost every industry.",
-    date: "September 2, 2026",
+      "Almost every office role today expects basic computer confidence. Here's why that skill matters more than most job seekers realize.",
+    date: "August 4, 2026",
     author: "SF Digital Solutions",
     category: "Career",
     image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop",
     content: [
-      "Digital skills used to be something only 'tech people' needed. That's no longer true — practical computer and digital skills now support almost every career path, from office administration to retail to healthcare.",
-      "Someone who can prepare a professional CV, organize files properly, build a simple spreadsheet report, and put together a clean presentation stands out immediately, even in non-technical roles.",
-      "Beyond office basics, skills like Canva design or a foundational understanding of social media and digital marketing let people support their workplace — or their own small business — in ways that used to require hiring outside help.",
-      "The goal isn't to turn everyone into a developer or designer overnight. It's to build practical, confidence-boosting skills that make day-to-day work easier and job applications stronger — which is exactly what we focus on at SF Digital Solutions.",
+      "Walk into almost any office today — a school, a clinic, a small business, a government counter — and the work happens on a computer. Typing a letter, filling a form, preparing a report or sending an email are no longer optional extras; they're the baseline.",
+      "This is exactly why so many job listings quietly assume computer literacy, even for roles that aren't technical on paper. An applicant who can confidently use Word, Excel and email has a real advantage over someone who has to learn on the job, under pressure, while everyone else is watching.",
+      "The good news is that this isn't a hard skill to build. Unlike a full IT degree, basic computer and office skills can be learned in a matter of weeks with the right hands-on training — typing, file management, MS Word, MS Excel, MS PowerPoint and simple design tools like Canva.",
+      "Our Professional Computer Basics Course was built around exactly this gap: practical, job-ready skills for students, job seekers, office staff and business owners, without assuming any prior computer experience.",
     ],
   },
 ];
