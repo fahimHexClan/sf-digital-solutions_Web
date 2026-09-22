@@ -203,14 +203,14 @@ export default async function CourseDetailPage({
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 rounded-2xl bg-brand-tint/60 border border-slate-100 p-7">
+            <div className="sticky top-24 rounded-2xl bg-brand-tint/60 border border-slate-100 p-6">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue text-white">
                 <Icon size={24} />
               </span>
-              <h3 className="mt-4 font-display font-semibold text-xl text-brand-navy">
+              <h3 className="mt-3 font-display font-semibold text-xl text-brand-navy">
                 {course.title}
               </h3>
-              <dl className="mt-5 space-y-3 text-sm">
+              <dl className="mt-4 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-brand-slate">Duration</dt>
                   <dd className="font-medium text-brand-ink">{course.duration}</dd>
@@ -222,7 +222,7 @@ export default async function CourseDetailPage({
               </dl>
 
               {!course.comingSoon && course.offerPrice && (
-                <div className="mt-6 pt-5 border-t border-slate-200">
+                <div className="mt-4 pt-4 border-t border-slate-200">
                   <div className="flex items-baseline gap-2">
                     {course.originalPrice && (
                       <span className="text-sm text-brand-slate line-through">
@@ -240,14 +240,14 @@ export default async function CourseDetailPage({
                   )}
 
                   {course.installments && course.installments.length > 0 && (
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-3 space-y-1.5">
                       <p className="text-xs font-semibold uppercase tracking-wide text-brand-slate">
                         Or pay in installments
                       </p>
                       {course.installments.map((inst) => (
                         <div
                           key={inst.label}
-                          className="flex justify-between text-sm bg-white rounded-md px-3 py-2 border border-slate-100"
+                          className="flex justify-between text-sm bg-white rounded-md px-3 py-1.5 border border-slate-100"
                         >
                           <span className="text-brand-ink">{inst.label}</span>
                           <span className="font-semibold text-brand-navy">{inst.amount}</span>

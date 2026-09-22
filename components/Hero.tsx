@@ -75,7 +75,7 @@ export default function Hero() {
         </div>
 
         {/* Floating badge card, echoing the photo's energy without fake numbers */}
-        <div className="hidden lg:flex absolute bottom-10 right-10 xl:right-16 items-center gap-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 px-5 py-4 shadow-xl">
+        <div className="hidden lg:flex absolute bottom-24 right-10 xl:right-16 items-center gap-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 px-5 py-4 shadow-xl">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-sky text-white shadow-md shrink-0">
             <GraduationCap size={20} />
           </span>

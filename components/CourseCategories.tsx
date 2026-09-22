@@ -87,6 +87,11 @@ export default function CourseCategories() {
                   >
                     <Icon size={20} />
                   </span>
+                  {course.comingSoon && (
+                    <span className="absolute top-3 right-3 rounded-full bg-brand-navy/90 backdrop-blur px-3 py-1 text-xs font-semibold text-white shadow-md">
+                      Coming Soon
+                    </span>
+                  )}
                 </div>
 
                 <div className="p-7">
@@ -105,7 +110,7 @@ export default function CourseCategories() {
                     </span>
                   </div>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue">
-                    View Course{" "}
+                    {course.comingSoon ? "Learn More" : "View Course"}{" "}
                     <ArrowRight
                       size={14}
                       className="group-hover:translate-x-1 transition-transform duration-300"

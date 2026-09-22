@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import PageCover from "@/components/PageCover";
 
@@ -87,21 +87,26 @@ export default function ContactPage() {
                 </div>
               ))}
 
-              {/* Highlighted hours card */}
+              {/* Fastest way to reach us */}
               <div className="relative rounded-2xl bg-gradient-to-br from-brand-navy to-brand-navy-light p-6 overflow-hidden">
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-sky/20 blur-2xl" />
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-brand-sky">
-                  <Clock size={20} />
+                  <MessageCircle size={20} />
                 </span>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-blue-200/70">
-                  Working Hours
+                  Fastest Way to Reach Us
                 </p>
                 <p className="mt-1 font-display font-semibold text-white">
-                  Mon – Sat, 9:00 AM – 6:00 PM
+                  Message us on WhatsApp
                 </p>
-                <p className="mt-3 text-xs text-blue-200/60">
-                  Closed on public holidays
-                </p>
+                <a
+                  href="https://wa.me/94785194631"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-sky hover:text-white transition-colors"
+                >
+                  Chat with SF Digital Solutions →
+                </a>
               </div>
             </div>
           </div>
