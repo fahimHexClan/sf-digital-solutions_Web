@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import PageCover from "@/components/PageCover";
+import Portfolio from "@/components/Portfolio";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -33,6 +34,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <Portfolio />
 
       <section className="py-16 sm:py-20">
         <div className="container-page">

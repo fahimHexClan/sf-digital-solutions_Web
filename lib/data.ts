@@ -78,6 +78,27 @@ export const freeResources: Resource[] = [
   },
 ];
 
+export type PortfolioItem = {
+  slug: string;
+  title: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  url: string;
+};
+
+export const portfolio: PortfolioItem[] = [
+  {
+    slug: "skilllift-education",
+    title: "SkillLift Education",
+    tagline: "Course platform for a crypto-trading education brand",
+    description:
+      "A full course-sales website built for SkillLift Education, serving learners in New Zealand, Australia and Sri Lanka. Includes a flagship course sales page, instructor profiles, an LMS login portal, and a full course enrollment flow.",
+    tags: ["Web Development", "Education Platform", "LMS Integration"],
+    url: "https://skill-lift-nz.vercel.app/",
+  },
+];
+
 export type Testimonial = {
   name: string;
   context: string; // course or how they know SF
