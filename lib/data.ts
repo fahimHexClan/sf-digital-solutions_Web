@@ -97,6 +97,15 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Web Development", "Education Platform", "LMS Integration"],
     url: "https://skill-lift-nz.vercel.app/",
   },
+  {
+    slug: "openday-queue-system",
+    title: "Open Day Queue System",
+    tagline: "Digital token & queue management app for an Open Day event",
+    description:
+      "A web app built to manage visitor flow at an Open Day event — visitors receive a digital queue token and can track their place in line in real time, cutting down physical queues and wait-time confusion at the venue.",
+    tags: ["Web App", "Event Management", "Real-Time Queue"],
+    url: "https://openday-tokens.netlify.app/",
+  },
 ];
 
 export type Testimonial = {
