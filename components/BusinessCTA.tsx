@@ -40,12 +40,20 @@ export default function BusinessCTA() {
             ))}
           </div>
 
-          <Link
-            href="/services"
-            className="mt-8 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-blue to-brand-sky px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 transition-shadow"
-          >
-            Let&apos;s Build Your Solution <ArrowRight size={18} />
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-blue to-brand-sky px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 transition-shadow"
+            >
+              Let&apos;s Build Your Solution <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/corporate-training"
+              className="inline-flex items-center gap-2 rounded-md bg-white/10 backdrop-blur px-6 py-3.5 font-semibold text-white border border-white/20 hover:bg-white/20 transition-colors"
+            >
+              Train Your Team <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

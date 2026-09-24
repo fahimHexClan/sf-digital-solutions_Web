@@ -130,6 +130,7 @@ export default function Footer() {
             <li><Link href="/" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Home</Link></li>
             <li><Link href="/teachers" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Our Instructor</Link></li>
             <li><Link href="/resources" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Free Resources</Link></li>
+            <li><Link href="/corporate-training" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Corporate Training</Link></li>
             <li><Link href="/blog" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Blog</Link></li>
             <li><Link href="/contact" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Contact Us</Link></li>
           </ul>

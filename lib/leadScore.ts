@@ -3,7 +3,7 @@
 // glance, without needing any external CRM integration or API keys.
 import { courses, services } from "@/lib/data";
 
-export type LeadSource = "contact_form" | "free_resources" | "course_finder";
+export type LeadSource = "contact_form" | "free_resources" | "course_finder" | "corporate_training" | "referral";
 
 export function scoreLead(opts: {
   source: LeadSource;
@@ -21,6 +21,14 @@ export function scoreLead(opts: {
     interest && kind !== "course"
       ? services.find((s) => s.title === interest || s.slug === interest)
       : undefined;
+
+  if (source === "corporate_training") {
+    return "🏢 Corporate Training Lead";
+  }
+
+  if (source === "referral") {
+    return "🎁 Referral Lead";
+  }
 
   if (source === "free_resources") {
     return "🌱 Warm Lead — Free Resource Download";

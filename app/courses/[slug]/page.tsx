@@ -20,6 +20,7 @@ import {
 import { courses } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
 import CourseCard from "@/components/CourseCard";
+import ReferralBanner from "@/components/ReferralBanner";
 
 const iconMap = { Code2, PenTool, TrendingUp, Monitor, Network, LineChart, GraduationCap };
 
@@ -175,6 +176,8 @@ export default async function CourseDetailPage({
                 ))}
               </ul>
             </div>
+
+            {!course.comingSoon && <ReferralBanner />}
 
             {course.gallery && course.gallery.length > 0 && (
               <div>
