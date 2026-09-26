@@ -1,3 +1,36 @@
+export type DigitalProduct = {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string; // lucide icon name
+  fileType: string;
+  price: string;
+  previewNote: string;
+};
+
+export const digitalProducts: DigitalProduct[] = [
+  {
+    slug: "complete-office-skills-handbook",
+    title: "Complete Office Skills Handbook",
+    description:
+      "Computer Basics, Keyboard Shortcuts, MS Word, MS Excel and MS PowerPoint — plus two bonus sections not available anywhere else: 10 essential Excel functions, and a guide to presentations people actually watch.",
+    icon: "BookOpenCheck",
+    fileType: "PDF, 6 pages",
+    price: "Rs. 990",
+    previewNote: "One-time purchase",
+  },
+  {
+    slug: "professional-cv-template",
+    title: "Professional CV Template",
+    description:
+      "A clean, editable Word CV template with a Profile, Work Experience, Education, Skills and Certificates section already laid out — just fill in your details.",
+    icon: "FileEdit",
+    fileType: "Word (.docx)",
+    price: "Rs. 450",
+    previewNote: "One-time purchase",
+  },
+];
+
 export type Service = {
   slug: string;
   title: string;
