@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpenCheck, FileEdit, ShoppingCart, X, Send } from "lucide-react";
-import type { DigitalProduct } from "@/lib/data";
+import { BookOpenCheck, FileEdit, ShoppingCart, X, Send, Sparkles } from "lucide-react";
+import type { DigitalProduct, DigitalBundle } from "@/lib/data";
 import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
 
@@ -11,27 +11,37 @@ const WHATSAPP_NUMBER = "94785194631";
 
 export default function DigitalProductsStore({
   products,
+  bundle,
 }: {
   products: DigitalProduct[];
+  bundle?: DigitalBundle;
 }) {
   const [activeProduct, setActiveProduct] = useState<DigitalProduct | null>(null);
+  const [activeBundle, setActiveBundle] = useState<DigitalBundle | null>(null);
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
 
+  const active = activeProduct || activeBundle;
+
   function closeModal() {
     setActiveProduct(null);
+    setActiveBundle(null);
     setName("");
     setWhatsapp("");
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!activeProduct) return;
+    if (!active) return;
 
     const leadTag = scoreLead({ source: "free_resources" });
+    const itemLine = activeBundle
+      ? `${activeBundle.title} (${activeBundle.bundlePrice} — includes ${activeBundle.includes.join(" + ")})`
+      : `${activeProduct!.title} (${activeProduct!.price})`;
+
     const message = [
       `[${leadTag} — 💳 Product Order]`,
-      `Hi! I'd like to buy: ${activeProduct.title} (${activeProduct.price})`,
+      `Hi! I'd like to buy: ${itemLine}`,
       `Name: ${name}`,
       `WhatsApp: ${whatsapp}`,
       "Please send me payment details.",
@@ -42,13 +52,58 @@ export default function DigitalProductsStore({
       "_blank",
       "noopener,noreferrer"
     );
-    trackEvent("product_order", { product: activeProduct.slug });
+    trackEvent("product_order", {
+      product: activeBundle?.slug || activeProduct?.slug,
+    });
     trackWhatsAppClick("digital_products_store");
     closeModal();
   }
 
   return (
     <>
+      {bundle && (
+        <div className="mb-8 rounded-2xl bg-gradient-to-br from-brand-navy to-brand-navy-light p-6 sm:p-8 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-brand-sky/20 blur-3xl" />
+          <div className="relative flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
+                <Sparkles size={12} /> Best Value — Save {bundle.savings}
+              </span>
+              <h3 className="mt-3 font-display font-bold text-xl sm:text-2xl text-white">
+                {bundle.title}
+              </h3>
+              <p className="mt-2 text-sm text-blue-100/80 leading-relaxed max-w-xl">
+                {bundle.description}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {bundle.includes.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-white"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="shrink-0 sm:text-right">
+              <p className="text-sm text-blue-200/60 line-through">
+                {bundle.originalPrice}
+              </p>
+              <p className="font-display font-extrabold text-3xl text-white">
+                {bundle.bundlePrice}
+              </p>
+              <button
+                onClick={() => setActiveBundle(bundle)}
+                className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-brand-blue hover:bg-blue-50 transition-colors"
+              >
+                <ShoppingCart size={15} /> Get the Bundle
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="grid sm:grid-cols-2 gap-6">
         {products.map((p) => {
           const Icon = iconMap[p.icon as keyof typeof iconMap] ?? BookOpenCheck;
@@ -86,7 +141,7 @@ export default function DigitalProductsStore({
         })}
       </div>
 
-      {activeProduct && (
+      {active && (
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4"
           onClick={closeModal}
@@ -103,10 +158,10 @@ export default function DigitalProductsStore({
               <X size={18} />
             </button>
             <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue">
-              {activeProduct.price}
+              {activeBundle ? activeBundle.bundlePrice : activeProduct!.price}
             </p>
             <h3 className="mt-1 font-display font-semibold text-lg text-brand-navy">
-              {activeProduct.title}
+              {activeBundle ? activeBundle.title : activeProduct!.title}
             </h3>
             <p className="mt-2 text-sm text-brand-slate">
               Share your details — we&apos;ll send payment instructions on

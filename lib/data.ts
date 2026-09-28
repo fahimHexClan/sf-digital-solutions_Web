@@ -31,6 +31,29 @@ export const digitalProducts: DigitalProduct[] = [
   },
 ];
 
+export type DigitalBundle = {
+  slug: string;
+  title: string;
+  description: string;
+  includes: string[];
+  originalPrice: string;
+  bundlePrice: string;
+  savings: string;
+};
+
+export const digitalBundles: DigitalBundle[] = [
+  {
+    slug: "career-starter-bundle",
+    title: "Career Starter Bundle",
+    description:
+      "Everything you need to look job-ready: the complete office skills handbook plus a professional CV template, bundled together.",
+    includes: ["Complete Office Skills Handbook", "Professional CV Template"],
+    originalPrice: "Rs. 1,440",
+    bundlePrice: "Rs. 1,190",
+    savings: "Rs. 250",
+  },
+];
+
 export type Service = {
   slug: string;
   title: string;

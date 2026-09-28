@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageCover from "@/components/PageCover";
 import DigitalProductsStore from "@/components/DigitalProductsStore";
-import { digitalProducts } from "@/lib/data";
+import { digitalProducts, digitalBundles } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Shop",
@@ -22,7 +22,7 @@ export default function ShopPage() {
 
       <section className="py-16 sm:py-20">
         <div className="container-page">
-          <DigitalProductsStore products={digitalProducts} />
+          <DigitalProductsStore products={digitalProducts} bundle={digitalBundles[0]} />
         </div>
       </section>
     </>
