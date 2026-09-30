@@ -31,6 +31,40 @@ export const digitalProducts: DigitalProduct[] = [
   },
 ];
 
+export type RecordedCourse = {
+  slug: string;
+  title: string;
+  description: string;
+  curriculum: string[];
+  duration: string;
+  price: string;
+  deliveryNote: string;
+};
+
+// NOTE: price is a placeholder suggestion — confirm with the business owner
+// and update before this goes live.
+export const recordedCourses: RecordedCourse[] = [
+  {
+    slug: "professional-computer-basics-recorded",
+    title: "Professional Computer Basics Course — Recorded",
+    description:
+      "The same Professional Computer Basics curriculum as our live course, as self-paced recorded video lessons — learn on your own schedule.",
+    curriculum: [
+      "Computer Fundamentals",
+      "Keyboard Typing & Shortcuts",
+      "MS Word – Professional Documents, CVs, Reports, Letters",
+      "MS Excel – Data Entry, Formulas, Functions, Reports",
+      "MS PowerPoint – Professional Presentations",
+      "Canva – Social Media & Creative Designs",
+      "File Management, Printing, PDF Creation",
+      "Online Productivity & Professional Workflows",
+    ],
+    duration: "Self-paced — lifetime access",
+    price: "Rs. 3,500",
+    deliveryNote: "Access delivered via the SF Digital Solutions LMS after payment is confirmed.",
+  },
+];
+
 export type DigitalBundle = {
   slug: string;
   title: string;
