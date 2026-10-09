@@ -21,6 +21,7 @@ import { courses } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
 import CourseCard from "@/components/CourseCard";
 import ReferralBanner from "@/components/ReferralBanner";
+import GroupEnrollmentBanner from "@/components/GroupEnrollmentBanner";
 
 const iconMap = { Code2, PenTool, TrendingUp, Monitor, Network, LineChart, GraduationCap };
 
@@ -177,7 +178,12 @@ export default async function CourseDetailPage({
               </ul>
             </div>
 
-            {!course.comingSoon && <ReferralBanner />}
+            {!course.comingSoon && (
+              <div className="space-y-4">
+                <ReferralBanner />
+                <GroupEnrollmentBanner courseTitle={course.title} />
+              </div>
+            )}
 
             {course.gallery && course.gallery.length > 0 && (
               <div>

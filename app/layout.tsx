@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AskSF from "@/components/AskSF";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Analytics from "@/components/Analytics";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
@@ -88,6 +89,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <AskSF />
+        <ExitIntentPopup />
         <Analytics />
       </body>
     </html>
