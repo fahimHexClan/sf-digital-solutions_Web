@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { courses, services } from "@/lib/data";
+import { CONTACT_EMAIL, PHONE_DISPLAY } from "@/lib/site";
 
 function Facebook(props: { size?: number }) {
   return (
@@ -39,20 +40,20 @@ export default function Footer() {
 
       <div className="relative container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-2.5 mb-4">
-            <span className="relative h-10 w-10 shrink-0 rounded-full overflow-hidden ring-1 ring-white/10">
-              <Image
-                src="/images/brand/logo.png"
-                alt="SF Digital Solutions"
-                fill
-                sizes="40px"
-                className="object-cover"
-              />
-            </span>
-            <span className="font-display font-bold text-white text-lg">
-              SF Digital Solutions
-            </span>
-          </div>
+          <Link
+            href="/"
+            aria-label="SF Digital Solutions LK — home"
+            className="mb-4 inline-flex rounded-xl bg-white px-3 py-2 shadow-sm"
+          >
+            <Image
+              src="/images/brand/logo-landscape.png"
+              alt="SF Digital Solutions LK"
+              width={146}
+              height={40}
+              sizes="146px"
+              className="h-10 w-auto"
+            />
+          </Link>
           <p className="text-sm text-blue-200/80 leading-relaxed">
             A training institute and digital agency — teaching job-ready
             skills, and building software, websites and marketing for
@@ -128,6 +129,7 @@ export default function Footer() {
           <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
             <li><Link href="/" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Home</Link></li>
+            <li><Link href="/portfolio" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Portfolio</Link></li>
             <li><Link href="/teachers" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Our Instructor</Link></li>
             <li><Link href="/resources" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Free Resources</Link></li>
             <li><Link href="/shop" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">Shop</Link></li>
@@ -151,13 +153,13 @@ export default function Footer() {
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
                 <Phone size={13} />
               </span>
-              <span className="pt-0.5">+94 78 519 4631</span>
+              <span className="pt-0.5">{PHONE_DISPLAY}</span>
             </li>
             <li className="flex gap-2.5">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-sky">
                 <Mail size={13} />
               </span>
-              <span className="pt-0.5">sfdigitalsolutions.lk@gmail.com</span>
+              <span className="pt-0.5">{CONTACT_EMAIL}</span>
             </li>
           </ul>
         </div>
@@ -165,8 +167,13 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10">
         <div className="container-page py-5 text-xs text-blue-200/60 flex flex-col sm:flex-row justify-between gap-2">
-          <p>© {new Date().getFullYear()} SF Digital Solutions. All rights reserved.</p>
-          <p>Built for students who mean business.</p>
+          <p>© {new Date().getFullYear()} SF Digital Solutions LK. All rights reserved.</p>
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+            <Link href="/payment-policy" className="hover:text-white transition-colors">Payment Policy</Link>
+            <Link href="/delivery-support" className="hover:text-white transition-colors">Delivery &amp; Support</Link>
+          </nav>
         </div>
       </div>
     </footer>

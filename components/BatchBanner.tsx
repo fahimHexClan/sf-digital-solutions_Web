@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Users } from "lucide-react";
+import { REGISTRATION_URL } from "@/lib/site";
 
 // Toggle this when a batch is actively open for enrollment vs upcoming.
 const BATCH_OPEN = true;
@@ -26,7 +27,7 @@ export default function BatchBanner() {
         <Link
           href={
             BATCH_OPEN
-              ? "https://sf-digital-solutions-lk-registratio.vercel.app"
+              ? REGISTRATION_URL
               : "/contact"
           }
           className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-brand-blue hover:bg-blue-50 transition-colors shrink-0"

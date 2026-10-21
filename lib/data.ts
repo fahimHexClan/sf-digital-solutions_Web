@@ -175,6 +175,14 @@ export type PortfolioItem = {
   description: string;
   tags: string[];
   url: string;
+  /** Kind of website, e.g. "Education platform". */
+  websiteType: string;
+  /** Short list of what the project includes. */
+  features: string[];
+  /** Optional screenshot path, e.g. "/images/portfolio/skilllift.jpg" (put the file in public/images/portfolio). */
+  image?: string;
+  /** Set true for sample/demo projects so they are clearly labelled as demonstrations. */
+  isDemo?: boolean;
 };
 
 export const portfolio: PortfolioItem[] = [
@@ -186,6 +194,8 @@ export const portfolio: PortfolioItem[] = [
       "A full course-sales website built for SkillLift Education, serving learners in New Zealand, Australia and Sri Lanka. Includes a flagship course sales page, instructor profiles, an LMS login portal, and a full course enrollment flow.",
     tags: ["Web Development", "Education Platform", "LMS Integration"],
     url: "https://skill-lift-nz.vercel.app/",
+    websiteType: "Education / course-sales platform",
+    features: ["Course sales page", "Instructor profiles", "LMS login portal", "Course enrolment flow"],
   },
   {
     slug: "openday-queue-system",
@@ -195,6 +205,8 @@ export const portfolio: PortfolioItem[] = [
       "A web app built to manage visitor flow at an Open Day event — visitors receive a digital queue token and can track their place in line in real time, cutting down physical queues and wait-time confusion at the venue.",
     tags: ["Web App", "Event Management", "Real-Time Queue"],
     url: "https://openday-tokens.netlify.app/",
+    websiteType: "Event web app",
+    features: ["Digital queue tokens", "Real-time queue position tracking"],
   },
 ];
 
@@ -296,16 +308,19 @@ export const services: Service[] = [
     icon: "Globe",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
-      "Business & portfolio websites",
-      "E-commerce stores",
+      "Business websites",
+      "Personal and portfolio websites",
       "Landing pages",
+      "E-commerce websites",
+      "Website redesigns",
+      "Website maintenance and updates",
     ],
     process: [
-      "Discovery call to understand your brand and goals",
-      "Wireframe and design mockups for approval",
-      "Build a fast, mobile-friendly site",
-      "Content and SEO setup",
-      "Launch, plus a short training session for your team",
+      "Initial enquiry and requirements gathering",
+      "Quotation, project scope and written agreement",
+      "Advance payment and project confirmation",
+      "Design approval, development, testing and regular progress updates",
+      "Final payment, website handover and agreed support",
     ],
   },
   {
@@ -531,7 +546,7 @@ export const courses: Course[] = [
       "Comfortable troubleshooting everyday computer and network issues",
       "Basic ability to build and understand simple websites and databases",
       "Confidence with office software for any workplace",
-      "A recognized SF Digital Solutions IT Diploma certificate to support job applications",
+      "A recognized SF Digital Solutions LK IT Diploma certificate to support job applications",
     ],
     comingSoon: true,
   },
@@ -542,7 +557,7 @@ export const teachers: Teacher[] = [
     slug: "fahim",
     name: "Fahim",
     role: "Founder & IT / Digital Skills Trainer",
-    bio: "Founder of SF Digital Solutions, focused on practical IT education and digital solutions. Helping students, job seekers and professionals build essential computer and digital skills through beginner-friendly, practical training.",
+    bio: "Founder of SF Digital Solutions LK, focused on practical IT education and digital solutions. Helping students, job seekers and professionals build essential computer and digital skills through beginner-friendly, practical training.",
     image: "/images/team/fahim.jpg",
   },
 ];
@@ -554,7 +569,7 @@ export const posts: Post[] = [
     excerpt:
       "Not sure where to start with digital skills? Here's a practical order to learn them in.",
     date: "September 20, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Office Skills",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900&auto=format&fit=crop",
@@ -572,7 +587,7 @@ export const posts: Post[] = [
     excerpt:
       "Finished your A/Ls and not sure what to study next? Here's how to think about practical computer courses.",
     date: "September 16, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Career",
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=900&auto=format&fit=crop",
@@ -589,7 +604,7 @@ export const posts: Post[] = [
     excerpt:
       "Beyond SUM and AVERAGE — the functions that separate a confident Excel user from a beginner.",
     date: "September 10, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Office Skills",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
@@ -607,7 +622,7 @@ export const posts: Post[] = [
     excerpt:
       "From office basics to design and marketing, practical digital skills open doors across almost every industry.",
     date: "September 2, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Career",
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop",
@@ -615,7 +630,7 @@ export const posts: Post[] = [
       "Digital skills used to be something only 'tech people' needed. That's no longer true — practical computer and digital skills now support almost every career path, from office administration to retail to healthcare.",
       "Someone who can prepare a professional CV, organize files properly, build a simple spreadsheet report, and put together a clean presentation stands out immediately, even in non-technical roles.",
       "Beyond office basics, skills like Canva design or a foundational understanding of social media and digital marketing let people support their workplace — or their own small business — in ways that used to require hiring outside help.",
-      "The goal isn't to turn everyone into a developer or designer overnight. It's to build practical, confidence-boosting skills that make day-to-day work easier and job applications stronger — which is exactly what we focus on at SF Digital Solutions.",
+      "The goal isn't to turn everyone into a developer or designer overnight. It's to build practical, confidence-boosting skills that make day-to-day work easier and job applications stronger — which is exactly what we focus on at SF Digital Solutions LK.",
     ],
   },
   {
@@ -624,7 +639,7 @@ export const posts: Post[] = [
     excerpt:
       "Excel is one of the most requested workplace skills — here are the fundamentals worth learning first.",
     date: "August 18, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Office Skills",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
@@ -640,7 +655,7 @@ export const posts: Post[] = [
     excerpt:
       "Almost every office role today expects basic computer confidence. Here's why that skill matters more than most job seekers realize.",
     date: "August 4, 2026",
-    author: "SF Digital Solutions",
+    author: "SF Digital Solutions LK",
     category: "Career",
     image:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop",

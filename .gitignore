@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local
+# Paid product files must never live in the repo or public/ (see README)
+/private-files/
+/private/
+public/products/

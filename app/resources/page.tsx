@@ -8,7 +8,7 @@ import { freeResources } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Free Resources",
   description:
-    "Free downloadable guides on Excel, Word, keyboard shortcuts and computer basics from SF Digital Solutions.",
+    "Free downloadable guides on Excel, Word, keyboard shortcuts and computer basics from SF Digital Solutions LK.",
   alternates: { canonical: "/resources" },
 };
 

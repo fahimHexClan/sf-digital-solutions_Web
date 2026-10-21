@@ -5,11 +5,13 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { trackEnrollClick } from "@/lib/analytics";
+import { REGISTRATION_URL, LMS_URL } from "@/lib/site";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/resources", label: "Resources" },
   { href: "/shop", label: "Shop" },
   { href: "/blog", label: "Blog" },
@@ -22,26 +24,19 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
       <div className="container-page flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="relative h-11 w-11 shrink-0 rounded-full overflow-hidden ring-1 ring-slate-100">
-            <Image
-              src="/images/brand/logo.png"
-              alt="SF Digital Solutions"
-              fill
-              sizes="44px"
-              className="object-cover"
-              priority
-            />
-          </span>
-          <span className="font-display font-bold text-brand-navy text-lg leading-tight">
-            SF Digital
-            <span className="block text-xs font-sans font-normal text-brand-slate -mt-0.5">
-              Solutions
-            </span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0" aria-label="SF Digital Solutions LK — home">
+          <Image
+            src="/images/brand/logo-landscape.png"
+            alt="SF Digital Solutions LK"
+            width={161}
+            height={44}
+            sizes="161px"
+            className="h-11 w-auto"
+            priority
+          />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-5 lg:gap-6 xl:gap-8">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-5 xl:gap-8">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -55,17 +50,17 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="https://sfdigitalsolutionslk-lms.web.app"
+            href={LMS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center rounded-md border border-brand-blue px-5 py-2.5 text-sm font-semibold text-brand-blue hover:bg-brand-tint transition-colors"
+            className="hidden xl:inline-flex items-center rounded-md border border-brand-blue px-5 py-2.5 text-sm font-semibold text-brand-blue hover:bg-brand-tint transition-colors"
           >
             LMS Login
           </Link>
           <Link
-            href="https://sf-digital-solutions-lk-registratio.vercel.app"
+            href={REGISTRATION_URL}
             onClick={() => trackEnrollClick("navbar_desktop")}
-            className="hidden md:inline-flex items-center rounded-md bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+            className="hidden lg:inline-flex items-center rounded-md bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
           >
             Enroll Now
           </Link>
@@ -73,7 +68,7 @@ export default function Navbar() {
 
         <button
           aria-label={open ? "Close menu" : "Open menu"}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -81,7 +76,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-100 bg-white">
+        <div className="lg:hidden border-t border-slate-100 bg-white">
           <nav className="container-page flex flex-col py-3">
             {links.map((l) => (
               <Link
@@ -94,7 +89,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="https://sf-digital-solutions-lk-registratio.vercel.app"
+              href={REGISTRATION_URL}
               onClick={() => {
                 setOpen(false);
                 trackEnrollClick("navbar_mobile");
@@ -104,7 +99,7 @@ export default function Navbar() {
               Enroll Now
             </Link>
             <Link
-              href="https://sfdigitalsolutionslk-lms.web.app"
+              href={LMS_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}

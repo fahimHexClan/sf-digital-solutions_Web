@@ -15,6 +15,8 @@ import {
 import { services } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
 import ServiceCard from "@/components/ServiceCard";
+import WebsiteServiceSections from "@/components/WebsiteServiceSections";
+import { REGISTRATION_URL } from "@/lib/site";
 
 const iconMap = { Code2, Globe, PenTool, TrendingUp, Search };
 
@@ -52,6 +54,7 @@ export default async function ServiceDetailPage({
   const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
 
+  const isWebsiteService = service.slug === "website-design-development";
   const Icon = iconMap[service.icon as keyof typeof iconMap];
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
@@ -63,7 +66,7 @@ export default async function ServiceDetailPage({
     description: service.description,
     provider: {
       "@type": "Organization",
-      name: "SF Digital Solutions",
+      name: "SF Digital Solutions LK",
       sameAs: SITE_URL,
     },
     areaServed: "LK",
@@ -73,7 +76,6 @@ export default async function ServiceDetailPage({
     <article>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       {/* Banner */}
@@ -159,16 +161,41 @@ export default async function ServiceDetailPage({
                 Tell us about your project and we&apos;ll get back to you
                 with a plan and a quote.
               </p>
-              <Link
-                href={`https://sf-digital-solutions-lk-registratio.vercel.app/?type=service&service=${service.slug}`}
-                className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
-              >
-                Get a Quote <ArrowRight size={18} />
-              </Link>
+              {isWebsiteService ? (
+                <>
+                  <Link
+                    href="#quote"
+                    className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+                  >
+                    Request a Quote <ArrowRight size={18} />
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-md border border-brand-blue px-6 py-3 font-semibold text-brand-blue hover:bg-white transition-colors"
+                  >
+                    View Our Work
+                  </Link>
+                  <Link
+                    href={`${REGISTRATION_URL}/?type=service&service=${service.slug}`}
+                    className="mt-4 block text-center text-xs font-medium text-brand-slate hover:text-brand-blue"
+                  >
+                    Or use our online registration form
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href={`${REGISTRATION_URL}/?type=service&service=${service.slug}`}
+                  className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+                >
+                  Get a Quote <ArrowRight size={18} />
+                </Link>
+              )}
             </div>
           </div>
         </div>
       </section>
+
+      {isWebsiteService && <WebsiteServiceSections />}
 
       {/* Related services */}
       {related.length > 0 && (

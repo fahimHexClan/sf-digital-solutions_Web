@@ -7,7 +7,7 @@ import { digitalProducts, digitalBundles, recordedCourses } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Shop",
   description:
-    "Recorded courses, guides and templates from SF Digital Solutions — self-paced learning and premium resources, ready to buy.",
+    "Recorded courses, guides and templates from SF Digital Solutions LK — self-paced learning and premium resources, ready to buy.",
   alternates: { canonical: "/shop" },
 };
 

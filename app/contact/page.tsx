@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import PageCover from "@/components/PageCover";
+import { CONTACT_EMAIL, PHONE_DISPLAY, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with SF Digital Solutions — ask about courses, batches, or business services. Reach us on WhatsApp, email, or the contact form.",
+    "Get in touch with SF Digital Solutions LK — ask about courses, batches, or business services. Reach us on WhatsApp, email, or the contact form.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,13 +21,13 @@ const info = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+94 78 519 4631",
+    value: PHONE_DISPLAY,
     accent: "from-brand-sky to-brand-navy",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "sfdigitalsolutions.lk@gmail.com",
+    value: CONTACT_EMAIL,
     accent: "from-brand-navy to-brand-blue",
   },
 ];
@@ -100,12 +101,12 @@ export default function ContactPage() {
                   Message us on WhatsApp
                 </p>
                 <a
-                  href="https://wa.me/94785194631"
+                  href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-sky hover:text-white transition-colors"
                 >
-                  Chat with SF Digital Solutions →
+                  Chat with SF Digital Solutions LK →
                 </a>
               </div>
             </div>

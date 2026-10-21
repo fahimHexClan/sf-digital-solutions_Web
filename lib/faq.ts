@@ -9,7 +9,7 @@ export const faqs: FAQItem[] = [
   {
     question: "Do I get a certificate after completing a course?",
     answer:
-      "Yes, students who complete a course receive a certificate from SF Digital Solutions, which you can add to your CV or job applications.",
+      "Yes, students who complete a course receive a certificate from SF Digital Solutions LK, which you can add to your CV or job applications.",
   },
   {
     question: "Are classes online or in-person?",
@@ -34,6 +34,6 @@ export const faqs: FAQItem[] = [
   {
     question: "Do you work with businesses too, not just students?",
     answer:
-      "Yes. Alongside training, SF Digital Solutions also builds websites, software, graphic design and digital marketing for businesses — see our Services page for details.",
+      "Yes. Alongside training, SF Digital Solutions LK also builds websites, software, graphic design and digital marketing for businesses — see our Services page for details.",
   },
 ];
