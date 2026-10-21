@@ -175,6 +175,14 @@ export type PortfolioItem = {
   description: string;
   tags: string[];
   url: string;
+  /** Kind of website, e.g. "Education platform". */
+  websiteType: string;
+  /** Short list of what the project includes. */
+  features: string[];
+  /** Optional screenshot path, e.g. "/images/portfolio/skilllift.jpg" (put the file in public/images/portfolio). */
+  image?: string;
+  /** Set true for sample/demo projects so they are clearly labelled as demonstrations. */
+  isDemo?: boolean;
 };
 
 export const portfolio: PortfolioItem[] = [
@@ -186,6 +194,8 @@ export const portfolio: PortfolioItem[] = [
       "A full course-sales website built for SkillLift Education, serving learners in New Zealand, Australia and Sri Lanka. Includes a flagship course sales page, instructor profiles, an LMS login portal, and a full course enrollment flow.",
     tags: ["Web Development", "Education Platform", "LMS Integration"],
     url: "https://skill-lift-nz.vercel.app/",
+    websiteType: "Education / course-sales platform",
+    features: ["Course sales page", "Instructor profiles", "LMS login portal", "Course enrolment flow"],
   },
   {
     slug: "openday-queue-system",
@@ -195,6 +205,8 @@ export const portfolio: PortfolioItem[] = [
       "A web app built to manage visitor flow at an Open Day event — visitors receive a digital queue token and can track their place in line in real time, cutting down physical queues and wait-time confusion at the venue.",
     tags: ["Web App", "Event Management", "Real-Time Queue"],
     url: "https://openday-tokens.netlify.app/",
+    websiteType: "Event web app",
+    features: ["Digital queue tokens", "Real-time queue position tracking"],
   },
 ];
 
@@ -296,16 +308,19 @@ export const services: Service[] = [
     icon: "Globe",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
     deliverables: [
-      "Business & portfolio websites",
-      "E-commerce stores",
+      "Business websites",
+      "Personal and portfolio websites",
       "Landing pages",
+      "E-commerce websites",
+      "Website redesigns",
+      "Website maintenance and updates",
     ],
     process: [
-      "Discovery call to understand your brand and goals",
-      "Wireframe and design mockups for approval",
-      "Build a fast, mobile-friendly site",
-      "Content and SEO setup",
-      "Launch, plus a short training session for your team",
+      "Initial enquiry and requirements gathering",
+      "Quotation, project scope and written agreement",
+      "Advance payment and project confirmation",
+      "Design approval, development, testing and regular progress updates",
+      "Final payment, website handover and agreed support",
     ],
   },
   {

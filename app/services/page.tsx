@@ -35,7 +35,26 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Portfolio />
+      <section className="pb-4">
+        <div className="container-page">
+          <div className="rounded-2xl border border-brand-blue/20 bg-brand-tint/60 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 className="font-display font-bold text-xl text-brand-navy">Need a website?</h2>
+              <p className="mt-1 text-sm text-brand-slate max-w-xl">
+                See our website packages, how a project works, how payments and support are handled, and request a written quote.
+              </p>
+            </div>
+            <Link
+              href="/services/website-design-development"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-blue-hover transition-colors"
+            >
+              Website Packages &amp; Quote <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Portfolio showAllLink />
 
       <section className="py-16 sm:py-20">
         <div className="container-page">

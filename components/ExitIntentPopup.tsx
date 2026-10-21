@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { X, Gift, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import Modal from "@/components/Modal";
 
 // Pages where this popup would be redundant (already selling/showing resources).
 const SKIP_PATHS = ["/resources", "/shop"];
@@ -53,14 +54,12 @@ export default function ExitIntentPopup() {
   if (!show) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-brand-navy/70 backdrop-blur-sm p-4"
-      onClick={close}
+    <Modal
+      onClose={close}
+      label="Free resources offer"
+      zClass="z-[70]"
+      panelClassName="relative w-full max-w-sm rounded-2xl bg-white p-7 shadow-2xl text-center"
     >
-      <div
-        className="relative w-full max-w-sm rounded-2xl bg-white p-7 shadow-2xl text-center"
-        onClick={(e) => e.stopPropagation()}
-      >
         <button
           aria-label="Close"
           onClick={close}
@@ -91,7 +90,6 @@ export default function ExitIntentPopup() {
         >
           No thanks, I&apos;ll keep browsing
         </button>
-      </div>
-    </div>
+    </Modal>
   );
 }

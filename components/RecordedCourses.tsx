@@ -5,8 +5,9 @@ import { PlayCircle, ShoppingCart, X, Send, CheckCircle2 } from "lucide-react";
 import type { RecordedCourse } from "@/lib/data";
 import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import { WHATSAPP_NUMBER } from "@/lib/site";
+import Modal from "@/components/Modal";
 
-const WHATSAPP_NUMBER = "94785194631";
 
 export default function RecordedCourses({
   courses,
@@ -91,14 +92,7 @@ export default function RecordedCourses({
       </div>
 
       {active && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4"
-          onClick={closeModal}
-        >
-          <div
-            className="relative w-full max-w-md rounded-2xl bg-white p-6 sm:p-7 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <Modal onClose={closeModal} label={active.title}>
             <button
               aria-label="Close"
               onClick={closeModal}
@@ -151,8 +145,7 @@ export default function RecordedCourses({
                 Order via WhatsApp <Send size={16} />
               </button>
             </form>
-          </div>
-        </div>
+        </Modal>
       )}
     </>
   );

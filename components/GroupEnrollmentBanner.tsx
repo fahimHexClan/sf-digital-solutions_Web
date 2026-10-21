@@ -3,6 +3,7 @@
 import { Users2 } from "lucide-react";
 import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import { whatsappLink } from "@/lib/site";
 
 export default function GroupEnrollmentBanner({
   courseTitle,
@@ -13,7 +14,7 @@ export default function GroupEnrollmentBanner({
     const leadTag = scoreLead({ source: "group_enrollment" });
     const message = `[${leadTag}]\nHi! We'd like to enroll as a group (3 or more) in ${courseTitle} for the group discount. Here are our names:`;
     window.open(
-      `https://wa.me/94785194631?text=${encodeURIComponent(message)}`,
+      whatsappLink(message),
       "_blank",
       "noopener,noreferrer"
     );

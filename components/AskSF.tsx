@@ -16,6 +16,7 @@ import {
 import { courses } from "@/lib/data";
 import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import { whatsappLink } from "@/lib/site";
 
 type ViewId = "menu" | "courses" | "fees" | "certificate" | "classes";
 
@@ -48,7 +49,7 @@ export default function AskSF() {
     const leadTag = scoreLead({ source: "contact_form", hasMessage: false });
     const message = `[${leadTag}]\nHi! I was chatting with the Ask SF widget on your website and would like to talk to an advisor.`;
     window.open(
-      `https://wa.me/94785194631?text=${encodeURIComponent(message)}`,
+      whatsappLink(message),
       "_blank",
       "noopener,noreferrer"
     );
@@ -80,7 +81,7 @@ export default function AskSF() {
                   Ask SF
                 </p>
                 <p className="text-[11px] text-blue-200/70 leading-tight">
-                  Usually replies instantly
+                  Quick answers, or talk to a person
                 </p>
               </div>
             </div>

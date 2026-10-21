@@ -13,11 +13,11 @@ import {
 import type { Resource } from "@/lib/data";
 import { trackWhatsAppClick, trackEvent } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import { WHATSAPP_NUMBER } from "@/lib/site";
+import Modal from "@/components/Modal";
 
 const iconMap = { FileSpreadsheet, FileText, Keyboard, Monitor };
 
-// Update this if the WhatsApp number is different from the contact phone.
-const WHATSAPP_NUMBER = "94785194631";
 
 export default function FreeResources({
   resources,
@@ -107,14 +107,7 @@ export default function FreeResources({
 
       {/* Lead-capture modal */}
       {activeResource && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4"
-          onClick={closeModal}
-        >
-          <div
-            className="relative w-full max-w-md rounded-2xl bg-white p-6 sm:p-7 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <Modal onClose={closeModal} label={activeResource.title}>
             <button
               aria-label="Close"
               onClick={closeModal}
@@ -184,8 +177,7 @@ export default function FreeResources({
                 WhatsApp so our team knows to follow up.
               </p>
             </form>
-          </div>
-        </div>
+        </Modal>
       )}
     </>
   );

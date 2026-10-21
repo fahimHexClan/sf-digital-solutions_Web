@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, Send } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import FormField, { fieldProps, submitClass } from "@/components/FormField";
+import { deliverLead, type LeadResult } from "@/lib/forms";
+import { whatsappLink } from "@/lib/site";
+import { isEmail, isPhone } from "@/lib/validation";
 
 const courseOptions = [
   "Web Development",
@@ -22,13 +26,16 @@ const serviceOptions = [
   "SEO",
 ];
 
-// Update this if the WhatsApp number is different from the contact phone.
-const WHATSAPP_NUMBER = "94785194631";
+
+type Errors = Partial<Record<"name" | "email" | "phone", string>>;
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [result, setResult] = useState<LeadResult | null>(null);
+  const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
+  const [fallbackMessage, setFallbackMessage] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const form = e.currentTarget;
@@ -37,10 +44,23 @@ export default function ContactForm() {
     const phone = data.get("phone")?.toString().trim() || "";
     const email = data.get("email")?.toString().trim() || "";
     const rawInterest = data.get("course")?.toString().trim() || "";
+    const message = data.get("message")?.toString().trim() || "";
+
+    const next: Errors = {};
+    if (name.length < 2) next.name = "Please enter your name.";
+    if (!email) next.email = "Please enter your email address.";
+    else if (!isEmail(email)) next.email = "Please enter a valid email address, for example you@example.com.";
+    if (phone && !isPhone(phone)) next.phone = "Please enter a valid phone number, for example 077 123 4567.";
+    setErrors(next);
+    const firstInvalid = (["name", "phone", "email"] as const).find((k) => next[k]);
+    if (firstInvalid) {
+      document.getElementById(firstInvalid)?.focus();
+      return;
+    }
+
     const [kind, interestLabel] = rawInterest.includes(":")
       ? (rawInterest.split(":") as ["course" | "service", string])
       : (["course", rawInterest] as ["course" | "service", string]);
-    const message = data.get("message")?.toString().trim() || "";
 
     const leadTag = scoreLead({
       source: "contact_form",
@@ -57,34 +77,48 @@ export default function ContactForm() {
       `Email: ${email}`,
       `Reaching out about: ${interestLabel}`,
       message && `Message: ${message}`,
-    ].filter(Boolean);
+    ].filter(Boolean) as string[];
+    const text = lines.join("\n");
+    setFallbackMessage(text);
 
-    const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-      lines.join("\n")
-    )}`;
-    window.open(href, "_blank", "noopener,noreferrer");
-    trackWhatsAppClick("contact_form");
-
-    setSubmitted(true);
-    form.reset();
+    setSending(true);
+    const outcome = await deliverLead(
+      { formType: "contact", name, phone, email, interest: interestLabel, message },
+      text,
+    );
+    setSending(false);
+    setResult(outcome);
+    if (outcome === "whatsapp") trackWhatsAppClick("contact_form");
+    if (outcome !== "error") form.reset();
   }
 
-  if (submitted) {
+  if (result === "sent" || result === "whatsapp") {
     return (
-      <div className="flex flex-col items-center justify-center text-center py-10">
+      <div className="flex flex-col items-center justify-center text-center py-10" role="status">
         <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-sky shadow-lg shadow-brand-blue/30">
           <CheckCircle2 size={32} className="text-white" />
         </span>
         <h3 className="mt-4 font-display font-semibold text-xl text-brand-navy">
-          Opening WhatsApp&hellip;
+          {result === "sent" ? "Message sent" : "Your message is ready in WhatsApp"}
         </h3>
         <p className="mt-2 text-sm text-brand-slate max-w-sm">
-          Your message is ready in WhatsApp — just hit send there and our
-          team will get back to you shortly.
+          {result === "sent"
+            ? "Thank you. Our team will get back to you."
+            : "Please press Send in WhatsApp to deliver it. Nothing is stored on this website, so we receive your message once you send it."}
         </p>
+        {result === "whatsapp" && (
+          <a
+            href={whatsappLink(fallbackMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
+          >
+            WhatsApp didn&apos;t open? Tap here
+          </a>
+        )}
         <button
-          onClick={() => setSubmitted(false)}
-          className="mt-6 text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
+          onClick={() => setResult(null)}
+          className="mt-5 text-sm font-semibold text-brand-blue hover:text-brand-blue-hover"
         >
           Send another message
         </button>
@@ -93,58 +127,22 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
+    <form className="space-y-5" onSubmit={handleSubmit} noValidate>
       <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-brand-ink mb-1.5">
-            Full Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="Your name"
-            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-          />
-        </div>
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-brand-ink mb-1.5">
-            Phone Number
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="07X XXX XXXX"
-            className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-          />
-        </div>
+        <FormField id="name" label="Full Name" error={errors.name}>
+          <input {...fieldProps("name", errors.name)} type="text" autoComplete="name" placeholder="Your name" />
+        </FormField>
+        <FormField id="phone" label="Phone Number" optional error={errors.phone}>
+          <input {...fieldProps("phone", errors.phone)} type="tel" autoComplete="tel" placeholder="07X XXX XXXX" />
+        </FormField>
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-brand-ink mb-1.5">
-          Email Address
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder="you@example.com"
-          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-        />
-      </div>
+      <FormField id="email" label="Email Address" error={errors.email}>
+        <input {...fieldProps("email", errors.email)} type="email" autoComplete="email" placeholder="you@example.com" />
+      </FormField>
 
-      <div>
-        <label htmlFor="course" className="block text-sm font-medium text-brand-ink mb-1.5">
-          What are you reaching out about?
-        </label>
-        <select
-          id="course"
-          name="course"
-          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-        >
+      <FormField id="course" label="What are you reaching out about?">
+        <select {...fieldProps("course")}>
           <optgroup label="A Course">
             {courseOptions.map((c) => (
               <option key={`course:${c}`} value={`course:${c}`}>
@@ -160,26 +158,27 @@ export default function ContactForm() {
             ))}
           </optgroup>
         </select>
-      </div>
+      </FormField>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-brand-ink mb-1.5">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          placeholder="Tell us a bit about what you're looking for"
-          className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors hover:border-brand-blue/40 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
-        />
-      </div>
+      <FormField id="message" label="Message">
+        <textarea {...fieldProps("message")} rows={4} placeholder="Tell us a bit about what you're looking for" />
+      </FormField>
 
-      <button
-        type="submit"
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-brand-sky px-7 py-3 font-semibold text-white shadow-md shadow-brand-blue/25 hover:shadow-lg hover:shadow-brand-blue/35 transition-shadow"
-      >
-        Send Message <Send size={16} />
+      {result === "error" && (
+        <div role="alert" className="flex gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <AlertCircle size={18} className="shrink-0 mt-0.5" />
+          <p>
+            Sorry, we couldn&apos;t send your message. Please try again, or{" "}
+            <a href={whatsappLink(fallbackMessage)} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+              send it on WhatsApp instead
+            </a>
+            .
+          </p>
+        </div>
+      )}
+
+      <button type="submit" disabled={sending} className={submitClass}>
+        {sending ? "Sending…" : "Send Message"} <Send size={16} />
       </button>
     </form>
   );

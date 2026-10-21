@@ -25,6 +25,7 @@ import FAQSection from "@/components/FAQSection";
 import BusinessCTA from "@/components/BusinessCTA";
 import { faqs } from "@/lib/faq";
 import { teachers, posts, freeResources } from "@/lib/data";
+import { REGISTRATION_URL } from "@/lib/site";
 
 const audiences = [
   {
@@ -266,11 +267,11 @@ export default function Home() {
             Ready to learn a skill that actually pays off?
           </h2>
           <p className="mt-4 text-blue-50/90 max-w-lg mx-auto">
-            Batches start every month. Reach out and we'll help you pick the
+            Batches start every month. Reach out and we&apos;ll help you pick the
             right course to start with.
           </p>
           <Link
-            href="https://sf-digital-solutions-lk-registratio.vercel.app"
+            href={REGISTRATION_URL}
             className="mt-8 inline-flex items-center gap-2 rounded-md bg-white px-7 py-3.5 font-semibold text-brand-blue hover:bg-blue-50 transition-colors"
           >
             Enroll Now <ArrowRight size={18} />
@@ -280,7 +281,6 @@ export default function Home() {
 
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",

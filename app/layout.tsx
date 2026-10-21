@@ -7,6 +7,7 @@ import AskSF from "@/components/AskSF";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Analytics from "@/components/Analytics";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { CONTACT_EMAIL, PHONE_E164 } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -58,8 +59,8 @@ const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/images/brand/logo.png`,
   description: SITE_DESCRIPTION,
-  email: "sfdigitalsolutions.lk@gmail.com",
-  telephone: "+94785194631",
+  email: CONTACT_EMAIL,
+  telephone: PHONE_E164,
   address: {
     "@type": "PostalAddress",
     addressCountry: "LK",
@@ -81,7 +82,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <Navbar />

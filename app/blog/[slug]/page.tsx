@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react";
 import { posts } from "@/lib/data";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import BlogCard from "@/components/BlogCard";
+import { toIsoDate } from "@/lib/format";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -27,7 +28,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       type: "article",
-      publishedTime: post.date,
+      publishedTime: toIsoDate(post.date),
       authors: [post.author],
       images: [{ url: post.image }],
     },
@@ -51,7 +52,7 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.excerpt,
     image: post.image,
-    datePublished: post.date,
+    datePublished: toIsoDate(post.date),
     author: { "@type": "Organization", name: post.author },
     publisher: { "@type": "Organization", name: SITE_NAME },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
@@ -61,7 +62,6 @@ export default async function BlogPostPage({
     <article>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       {/* Banner */}

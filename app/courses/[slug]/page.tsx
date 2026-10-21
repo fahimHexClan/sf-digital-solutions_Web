@@ -22,6 +22,8 @@ import { SITE_URL } from "@/lib/seo";
 import CourseCard from "@/components/CourseCard";
 import ReferralBanner from "@/components/ReferralBanner";
 import GroupEnrollmentBanner from "@/components/GroupEnrollmentBanner";
+import { priceToNumber } from "@/lib/format";
+import { REGISTRATION_URL } from "@/lib/site";
 
 const iconMap = { Code2, PenTool, TrendingUp, Monitor, Network, LineChart, GraduationCap };
 
@@ -78,7 +80,7 @@ export default async function CourseDetailPage({
           offers: {
             "@type": "Offer",
             category: "Paid",
-            price: (course.offerPrice || "").replace(/[^0-9.]/g, ""),
+            price: priceToNumber(course.offerPrice || ""),
             priceCurrency: "LKR",
             availability: "https://schema.org/InStock",
           },
@@ -89,7 +91,6 @@ export default async function CourseDetailPage({
     <article>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
       {/* Banner */}
@@ -280,7 +281,7 @@ export default async function CourseDetailPage({
                 </div>
               ) : (
                 <Link
-                  href={`https://sf-digital-solutions-lk-registratio.vercel.app/?course=${course.slug}`}
+                  href={`${REGISTRATION_URL}/?course=${course.slug}`}
                   className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-md bg-brand-blue px-6 py-3 font-semibold text-white hover:bg-brand-blue-hover transition-colors"
                 >
                   Enroll Now <ArrowRight size={18} />

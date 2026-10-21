@@ -2,9 +2,8 @@
 
 import { MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
-// Update this if the WhatsApp number is different from the contact phone.
-const WHATSAPP_NUMBER = "94785194631"; // no + or leading 0, country code first
 const DEFAULT_MESSAGE = "Hi! I'd like to know more about SF Digital Solutions courses.";
 
 export default function WhatsAppButton() {

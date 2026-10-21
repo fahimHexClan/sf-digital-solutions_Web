@@ -4,8 +4,8 @@ import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { scoreLead } from "@/lib/leadScore";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
-const WHATSAPP_NUMBER = "94785194631";
 
 export default function CorporateTrainingForm() {
   const [submitted, setSubmitted] = useState(false);
