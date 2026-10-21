@@ -71,7 +71,7 @@ export default function ContactForm() {
 
     const lines = [
       `[${leadTag}]`,
-      "Hi! I'd like to get in touch with SF Digital Solutions.",
+      "Hi! I'd like to get in touch with SF Digital Solutions LK.",
       `Name: ${name}`,
       phone && `Phone: ${phone}`,
       `Email: ${email}`,

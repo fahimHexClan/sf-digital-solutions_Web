@@ -7,7 +7,7 @@ import Portfolio from "@/components/Portfolio";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Websites and web apps built by SF Digital Solutions. Browse our live projects, then request a quote for your own website.",
+    "Websites and web apps built by SF Digital Solutions LK. Browse our live projects, then request a quote for your own website.",
   alternates: { canonical: "/portfolio" },
 };
 

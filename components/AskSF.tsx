@@ -159,7 +159,7 @@ export default function AskSF() {
               {view === "certificate" && (
                 <p>
                   Yes — students who complete a course receive a certificate
-                  from SF Digital Solutions, which you can add to your CV or
+                  from SF Digital Solutions LK, which you can add to your CV or
                   job applications.
                 </p>
               )}

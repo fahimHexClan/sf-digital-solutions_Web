@@ -40,20 +40,20 @@ export default function Footer() {
 
       <div className="relative container-page py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-2.5 mb-4">
-            <span className="relative h-10 w-10 shrink-0 rounded-full overflow-hidden ring-1 ring-white/10">
-              <Image
-                src="/images/brand/logo.png"
-                alt="SF Digital Solutions"
-                fill
-                sizes="40px"
-                className="object-cover"
-              />
-            </span>
-            <span className="font-display font-bold text-white text-lg">
-              SF Digital Solutions
-            </span>
-          </div>
+          <Link
+            href="/"
+            aria-label="SF Digital Solutions LK — home"
+            className="mb-4 inline-flex rounded-xl bg-white px-3 py-2 shadow-sm"
+          >
+            <Image
+              src="/images/brand/logo-landscape.png"
+              alt="SF Digital Solutions LK"
+              width={146}
+              height={40}
+              sizes="146px"
+              className="h-10 w-auto"
+            />
+          </Link>
           <p className="text-sm text-blue-200/80 leading-relaxed">
             A training institute and digital agency — teaching job-ready
             skills, and building software, websites and marketing for
@@ -167,7 +167,7 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10">
         <div className="container-page py-5 text-xs text-blue-200/60 flex flex-col sm:flex-row justify-between gap-2">
-          <p>© {new Date().getFullYear()} SF Digital Solutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SF Digital Solutions LK. All rights reserved.</p>
           <nav aria-label="Legal" className="flex flex-wrap gap-x-4 gap-y-1">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>

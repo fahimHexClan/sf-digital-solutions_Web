@@ -6,7 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 export default function ReferralBanner() {
   function handleShare() {
     const message =
-      "Hey! I'm learning practical computer skills at SF Digital Solutions and it's been great. " +
+      "Hey! I'm learning practical computer skills at SF Digital Solutions LK and it's been great. " +
       "If you mention my name when you enroll, we both get Rs. 500 off the course! " +
       "Check it out: https://sfdigitalsolutions.lk";
 

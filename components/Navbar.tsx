@@ -24,23 +24,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
       <div className="container-page flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="relative h-11 w-11 shrink-0 rounded-full overflow-hidden ring-1 ring-slate-100">
-            <Image
-              src="/images/brand/logo.png"
-              alt="SF Digital Solutions"
-              fill
-              sizes="44px"
-              className="object-cover"
-              priority
-            />
-          </span>
-          <span className="font-display font-bold text-brand-navy text-lg leading-tight">
-            SF Digital
-            <span className="block text-xs font-sans font-normal text-brand-slate -mt-0.5">
-              Solutions
-            </span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0" aria-label="SF Digital Solutions LK — home">
+          <Image
+            src="/images/brand/logo-landscape.png"
+            alt="SF Digital Solutions LK"
+            width={161}
+            height={44}
+            sizes="161px"
+            className="h-11 w-auto"
+            priority
+          />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:flex items-center gap-5 xl:gap-8">

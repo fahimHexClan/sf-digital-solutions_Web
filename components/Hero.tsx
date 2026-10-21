@@ -40,7 +40,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="mt-5 text-blue-100/85 text-base sm:text-lg max-w-xl">
-              SF Digital Solutions trains students in Web Development, Graphic
+              SF Digital Solutions LK trains students in Web Development, Graphic
               Design, Digital Marketing and more, and builds real software and
               websites for businesses.
             </p>

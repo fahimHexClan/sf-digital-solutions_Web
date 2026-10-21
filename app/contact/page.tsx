@@ -7,7 +7,7 @@ import { CONTACT_EMAIL, PHONE_DISPLAY, whatsappLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with SF Digital Solutions — ask about courses, batches, or business services. Reach us on WhatsApp, email, or the contact form.",
+    "Get in touch with SF Digital Solutions LK — ask about courses, batches, or business services. Reach us on WhatsApp, email, or the contact form.",
   alternates: { canonical: "/contact" },
 };
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-sky hover:text-white transition-colors"
                 >
-                  Chat with SF Digital Solutions →
+                  Chat with SF Digital Solutions LK →
                 </a>
               </div>
             </div>

@@ -25,7 +25,7 @@ export default function PolicyLayout({
     <article className="py-14 sm:py-16">
       <div className="container-page max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-blue">
-          SF Digital Solutions
+          SF Digital Solutions LK
         </p>
         <h1 className="mt-2 font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">
           {title}

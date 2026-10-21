@@ -5,7 +5,7 @@ import { handoverItems, websitePolicy } from "@/lib/websiteConfig";
 export const metadata: Metadata = {
   title: "Delivery & Support Policy",
   description:
-    "What you receive when SF Digital Solutions delivers your website, how bug-fix support works, and how maintenance differs from support.",
+    "What you receive when SF Digital Solutions LK delivers your website, how bug-fix support works, and how maintenance differs from support.",
   alternates: { canonical: "/delivery-support" },
 };
 

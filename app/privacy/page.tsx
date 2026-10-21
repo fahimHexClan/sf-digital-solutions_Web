@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How SF Digital Solutions handles the information you share through this website: enquiry forms, WhatsApp, and analytics.",
+    "How SF Digital Solutions LK handles the information you share through this website: enquiry forms, WhatsApp, and analytics.",
   alternates: { canonical: "/privacy" },
 };
 

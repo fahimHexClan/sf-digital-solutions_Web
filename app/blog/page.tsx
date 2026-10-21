@@ -6,7 +6,7 @@ import { posts } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Practical tips and guides on computer skills, office software and digital careers from SF Digital Solutions.",
+    "Practical tips and guides on computer skills, office software and digital careers from SF Digital Solutions LK.",
   alternates: { canonical: "/blog" },
 };
 

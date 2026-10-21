@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "SF Digital Solutions",
+    "SF Digital Solutions LK",
     "computer course Sri Lanka",
     "computer basics course",
     "MS Word Excel PowerPoint course",
@@ -31,9 +31,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/images/brand/logo.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Computer Training Institute in Sri Lanka`,
     description: SITE_DESCRIPTION,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1600, height: 685, alt: SITE_NAME }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,6 +59,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   name: SITE_NAME,
+  alternateName: "SF Digital Solutions",
   url: SITE_URL,
   logo: `${SITE_URL}/images/brand/logo.png`,
   description: SITE_DESCRIPTION,

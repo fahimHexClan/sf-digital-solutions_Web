@@ -23,7 +23,7 @@ export default function BusinessCTA() {
             Need a digital solution for your business?
           </h2>
           <p className="mt-4 text-blue-100/80 leading-relaxed">
-            Alongside training, SF Digital Solutions helps Sri Lankan
+            Alongside training, SF Digital Solutions LK helps Sri Lankan
             businesses build a stronger digital presence — from a new website
             to ongoing social media and SEO support.
           </p>

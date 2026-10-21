@@ -1,4 +1,4 @@
-# SF Digital Solutions — Website
+# SF Digital Solutions LK — Website
 
 Next.js (App Router) + React 19 + TypeScript + Tailwind CSS v4. Static site: no database
 and no API routes. Training institute + website-development agency for Sri Lanka.

@@ -127,18 +127,18 @@ export default function Home() {
       <CourseCategories />
       <ServicesSection />
 
-      {/* About / Why SF Digital Solutions */}
+      {/* About / Why SF Digital Solutions LK */}
       <section className="py-20 sm:py-24">
         <div className="container-page">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-widest text-brand-blue">
-              About SF Digital Solutions
+              About SF Digital Solutions LK
             </span>
             <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl text-brand-navy">
-              Why Choose SF Digital Solutions?
+              Why Choose SF Digital Solutions LK?
             </h2>
             <p className="mt-4 text-brand-slate leading-relaxed">
-              SF Digital Solutions is an online-based IT education and digital
+              SF Digital Solutions LK is an online-based IT education and digital
               solutions brand in Sri Lanka, helping students, job seekers and
               professionals develop practical digital skills while providing
               affordable digital solutions for businesses.

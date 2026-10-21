@@ -71,7 +71,7 @@ export default async function CourseDetailPage({
     description: course.description,
     provider: {
       "@type": "EducationalOrganization",
-      name: "SF Digital Solutions",
+      name: "SF Digital Solutions LK",
       sameAs: SITE_URL,
     },
     ...(course.comingSoon

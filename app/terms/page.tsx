@@ -5,7 +5,7 @@ import { termsItems } from "@/lib/websiteConfig";
 export const metadata: Metadata = {
   title: "Project Terms",
   description:
-    "How SF Digital Solutions website projects work: scope, payments, timelines, revisions, ownership, cancellation and support, confirmed in a written agreement.",
+    "How SF Digital Solutions LK website projects work: scope, payments, timelines, revisions, ownership, cancellation and support, confirmed in a written agreement.",
   alternates: { canonical: "/terms" },
 };
 

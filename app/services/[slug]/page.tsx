@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({
     description: service.description,
     provider: {
       "@type": "Organization",
-      name: "SF Digital Solutions",
+      name: "SF Digital Solutions LK",
       sameAs: SITE_URL,
     },
     areaServed: "LK",

@@ -9,7 +9,7 @@ import { services } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Website design, software development, graphic design, social media marketing and SEO services from SF Digital Solutions — for businesses across Sri Lanka.",
+    "Website design, software development, graphic design, social media marketing and SEO services from SF Digital Solutions LK — for businesses across Sri Lanka.",
   alternates: { canonical: "/services" },
 };
 
@@ -19,7 +19,7 @@ export default function ServicesPage() {
       <PageCover
         eyebrow="For Businesses"
         title="Our Services"
-        description="Alongside our training programs, SF Digital Solutions works directly with businesses — building software, websites, brand visuals and marketing campaigns."
+        description="Alongside our training programs, SF Digital Solutions LK works directly with businesses — building software, websites, brand visuals and marketing campaigns."
         image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop"
       />
 
