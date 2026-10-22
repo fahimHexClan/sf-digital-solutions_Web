@@ -23,15 +23,15 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
-      <div className="container-page flex items-center justify-between h-16">
+      <div className="container-page flex items-center justify-between h-16 lg:h-20">
         <Link href="/" className="flex items-center shrink-0" aria-label="SF Digital Solutions LK — home">
           <Image
             src="/images/brand/logo-landscape.png"
             alt="SF Digital Solutions LK"
-            width={161}
-            height={44}
-            sizes="161px"
-            className="h-11 w-auto"
+            width={205}
+            height={56}
+            sizes="(min-width: 1024px) 205px, 161px"
+            className="h-11 lg:h-14 w-auto"
             priority
           />
         </Link>
