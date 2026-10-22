@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { trackEnrollClick } from "@/lib/analytics";
 import { REGISTRATION_URL, LMS_URL } from "@/lib/site";
+import { SUPABASE_ENABLED } from "@/lib/supabase";
 
 const links = [
   { href: "/", label: "Home" },
@@ -23,15 +24,15 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
-      <div className="container-page flex items-center justify-between h-16">
+      <div className="container-page flex items-center justify-between h-16 lg:h-20">
         <Link href="/" className="flex items-center shrink-0" aria-label="SF Digital Solutions LK — home">
           <Image
             src="/images/brand/logo-landscape.png"
             alt="SF Digital Solutions LK"
-            width={161}
-            height={44}
-            sizes="161px"
-            className="h-11 w-auto"
+            width={205}
+            height={56}
+            sizes="(min-width: 1024px) 205px, 161px"
+            className="h-11 lg:h-14 w-auto"
             priority
           />
         </Link>
@@ -49,6 +50,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {SUPABASE_ENABLED && (
+            <Link
+              href="/account"
+              aria-label="My account"
+              className="hidden lg:inline-flex h-10 w-10 items-center justify-center rounded-full text-brand-navy hover:bg-brand-tint transition-colors"
+            >
+              <User size={20} />
+            </Link>
+          )}
           <Link
             href={LMS_URL}
             target="_blank"
@@ -88,6 +98,15 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            {SUPABASE_ENABLED && (
+              <Link
+                href="/account"
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-medium text-brand-ink border-b border-slate-50"
+              >
+                My Account
+              </Link>
+            )}
             <Link
               href={REGISTRATION_URL}
               onClick={() => {
