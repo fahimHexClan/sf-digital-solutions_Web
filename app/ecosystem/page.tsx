@@ -18,6 +18,7 @@ const divisions = [
     summary: "Practical IT training for students and professionals.",
     items: [
       { label: "Browse courses", href: "/courses" },
+      { label: "Free learning roadmap planner", href: "/roadmap" },
       { label: "Free learning resources", href: "/resources" },
       { label: "Digital products and study guides", href: "/shop" },
       { label: "Meet your instructor", href: "/teachers" },
