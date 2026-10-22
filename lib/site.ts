@@ -4,7 +4,10 @@
 export const WHATSAPP_NUMBER = "94785194631"; // country code first, no + or leading 0
 export const PHONE_DISPLAY = "+94 78 519 4631";
 export const PHONE_E164 = "+94785194631";
-export const CONTACT_EMAIL = "sfdigitalsolutions.lk@gmail.com";
+// Official business email. Make sure this mailbox receives mail (MX records) before deploying.
+export const CONTACT_EMAIL = "info@sfdigitalsolutions.lk";
+export const LEGAL_NAME = "SF Digital Solutions LK (PVT) LTD";
+export const TAGLINE = "Empowering People. Transforming Businesses.";
 
 export const REGISTRATION_URL =
   "https://sf-digital-solutions-lk-registratio.vercel.app";

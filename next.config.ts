@@ -58,6 +58,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    // Canonical host: https://sfdigitalsolutions.lk (no www)
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.sfdigitalsolutions.lk" }],
+        destination: "https://sfdigitalsolutions.lk/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

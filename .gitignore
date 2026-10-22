@@ -44,3 +44,4 @@ next-env.d.ts
 /private-files/
 /private/
 public/products/
+!.env.example
