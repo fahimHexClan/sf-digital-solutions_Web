@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MessageSquare, RotateCcw, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, CheckCircle2, MessageSquare, RotateCcw, Save, Sparkles } from "lucide-react";
 import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
+import { getSupabase, PENDING_ROADMAP_KEY, SUPABASE_ENABLED } from "@/lib/supabase";
 import { whatsappLink } from "@/lib/site";
 import {
   buildRoadmap,
@@ -32,6 +34,8 @@ export default function RoadmapPlanner({ courses }: { courses: CourseInfo[] }) {
   const [hours, setHours] = useState<number>(5);
   const [errors, setErrors] = useState<{ goal?: string; level?: string }>({});
   const [roadmap, setRoadmap] = useState<Roadmap | null>(null);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const router = useRouter();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,10 +45,38 @@ export default function RoadmapPlanner({ courses }: { courses: CourseInfo[] }) {
     setErrors(next);
     if (next.goal || next.level || !goal || !level) return;
     setRoadmap(buildRoadmap({ goal, level, hoursPerWeek: hours }));
+    setSaveState("idle");
     trackEvent("roadmap_created", { goal, level, hours });
     requestAnimationFrame(() =>
       document.getElementById("roadmap-result")?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
+  }
+
+  async function saveToAccount() {
+    if (!roadmap || !goal || !level) return;
+    const payload = { goal, level, hoursPerWeek: hours, plan: roadmap };
+    const supabase = getSupabase();
+    if (!supabase) return;
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      // Keep the plan in this browser only until the person signs in.
+      try {
+        localStorage.setItem(PENDING_ROADMAP_KEY, JSON.stringify(payload));
+      } catch {
+        // storage unavailable: they will need to recreate the plan after signing in
+      }
+      router.push("/account");
+      return;
+    }
+    setSaveState("saving");
+    const { error } = await supabase.from("saved_roadmaps").insert({
+      user_id: data.session.user.id,
+      goal,
+      level,
+      hours_per_week: hours,
+      plan: roadmap,
+    });
+    setSaveState(error ? "error" : "saved");
   }
 
   function reset() {
@@ -234,6 +266,16 @@ export default function RoadmapPlanner({ courses }: { courses: CourseInfo[] }) {
             >
               <MessageSquare size={18} /> Talk to us about this plan
             </a>
+            {SUPABASE_ENABLED && (
+              <button
+                onClick={saveToAccount}
+                disabled={saveState === "saving" || saveState === "saved"}
+                className="inline-flex items-center gap-2 rounded-md border border-brand-blue px-5 py-3 text-sm font-semibold text-brand-blue hover:bg-brand-tint transition-colors disabled:opacity-60"
+              >
+                <Save size={16} />
+                {saveState === "saved" ? "Saved to your account" : saveState === "saving" ? "Saving…" : "Save to my account"}
+              </button>
+            )}
             <button
               onClick={reset}
               className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold text-brand-ink hover:bg-slate-50 transition-colors"
@@ -241,6 +283,18 @@ export default function RoadmapPlanner({ courses }: { courses: CourseInfo[] }) {
               <RotateCcw size={16} /> Start over
             </button>
           </div>
+
+          {saveState === "error" && (
+            <p role="alert" className="mt-3 text-sm font-medium text-red-600">
+              We couldn&apos;t save your roadmap. You can keep up to 20 saved roadmaps; delete an old one in{" "}
+              <Link href="/account" className="underline">your account</Link> and try again.
+            </p>
+          )}
+          {saveState === "saved" && (
+            <p role="status" className="mt-3 text-sm text-emerald-700">
+              Saved. <Link href="/account" className="font-semibold underline">Open your dashboard</Link>
+            </p>
+          )}
 
           <p className="mt-6 text-xs text-brand-slate max-w-2xl leading-relaxed">
             This roadmap is a general planning guide built from your answers. It is not AI advice and

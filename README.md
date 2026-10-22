@@ -51,6 +51,23 @@ NEXT_PUBLIC_META_PIXEL_ID=1234567890123456
 NEXT_PUBLIC_QUOTE_FORM_ENDPOINT=https://formspree.io/f/xxxxxxxx
 ```
 
+## Accounts (Supabase)
+Optional. When `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set, the site shows
+`/account`: email sign-in link, saved roadmaps and enrolment requests. When they are not set, none of
+this appears and the rest of the site works as before.
+
+Setup:
+1. Supabase → SQL Editor → run `supabase/migrations/0001_accounts.sql` once.
+2. Authentication → URL Configuration: Site URL `https://sfdigitalsolutions.lk`; add Redirect URLs
+   `https://sfdigitalsolutions.lk/**` and `http://localhost:3000/**`.
+3. Add the two env variables in Vercel (and `.env.local` for local use), then redeploy.
+4. Sign in once on the site, then make yourself admin (SQL at the bottom of the migration file).
+5. Authentication → SMTP: Supabase's built-in email is heavily rate-limited. Connect a real sender
+   (for example Resend with `info@sfdigitalsolutions.lk`) before announcing accounts publicly.
+
+Enrolment requests appear in Supabase → Table Editor → `enrolment_requests`; admins can change `status`.
+The service_role key must never be added to this project or to any `NEXT_PUBLIC_` variable.
+
 ## Paid digital products — important
 Never put paid files in `public/` or anywhere in this repository: everything in `public/`
 is downloadable by URL, and a public GitHub repo exposes its files and history.

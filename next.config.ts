@@ -8,6 +8,13 @@ try {
 } catch {
   // invalid URL: ignore, forms fall back to WhatsApp
 }
+// If Supabase accounts are configured, allow the browser to reach the project.
+try {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (supabaseUrl) formEndpointOrigin += ` ${new URL(supabaseUrl).origin}`;
+} catch {
+  // invalid URL: accounts stay disabled in the browser
+}
 
 const csp = [
   "default-src 'self'",

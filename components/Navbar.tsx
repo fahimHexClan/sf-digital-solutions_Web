@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { trackEnrollClick } from "@/lib/analytics";
 import { REGISTRATION_URL, LMS_URL } from "@/lib/site";
+import { SUPABASE_ENABLED } from "@/lib/supabase";
 
 const links = [
   { href: "/", label: "Home" },
@@ -49,6 +50,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {SUPABASE_ENABLED && (
+            <Link
+              href="/account"
+              aria-label="My account"
+              className="hidden lg:inline-flex h-10 w-10 items-center justify-center rounded-full text-brand-navy hover:bg-brand-tint transition-colors"
+            >
+              <User size={20} />
+            </Link>
+          )}
           <Link
             href={LMS_URL}
             target="_blank"
@@ -88,6 +98,15 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            {SUPABASE_ENABLED && (
+              <Link
+                href="/account"
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-medium text-brand-ink border-b border-slate-50"
+              >
+                My Account
+              </Link>
+            )}
             <Link
               href={REGISTRATION_URL}
               onClick={() => {
