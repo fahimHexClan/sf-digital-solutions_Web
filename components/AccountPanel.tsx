@@ -165,6 +165,7 @@ function Dashboard({
   const supabase = getSupabase()!;
   const userId = session.user.id;
   const [displayName, setDisplayName] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const [nameError, setNameError] = useState<string | undefined>();
   const [nameSaved, setNameSaved] = useState(false);
   const [roadmaps, setRoadmaps] = useState<SavedRoadmap[]>([]);
@@ -176,7 +177,7 @@ function Dashboard({
 
   const load = useCallback(async () => {
     const [p, r, e] = await Promise.all([
-      supabase.from("profiles").select("display_name").eq("id", userId).maybeSingle(),
+      supabase.from("profiles").select("display_name, role").eq("id", userId).maybeSingle(),
       supabase.from("saved_roadmaps").select("*").eq("user_id", userId).order("created_at", { ascending: false }),
       supabase.from("enrolment_requests").select("*").eq("user_id", userId).order("created_at", { ascending: false }),
     ]);
@@ -186,6 +187,7 @@ function Dashboard({
     }
     setLoadError("");
     setDisplayName(p.data?.display_name ?? "");
+    setIsAdmin(p.data?.role === "admin");
     setRoadmaps((r.data ?? []) as SavedRoadmap[]);
     setRequests((e.data ?? []) as EnrolmentRequest[]);
   }, [supabase, userId]);
@@ -270,6 +272,15 @@ function Dashboard({
           <LogOut size={15} /> Sign out
         </button>
       </div>
+
+      {isAdmin && (
+        <Link
+          href="/admin"
+          className="inline-flex items-center gap-2 rounded-xl border border-brand-blue/30 bg-brand-tint/60 px-4 py-3 text-sm font-semibold text-brand-blue hover:bg-brand-tint"
+        >
+          Staff: view enrolment requests →
+        </Link>
+      )}
 
       {message && (
         <div role="status" className="flex gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
