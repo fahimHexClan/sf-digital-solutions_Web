@@ -267,7 +267,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-brand-blue to-brand-sky">
         <div className="container-page py-16 text-center">
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-white max-w-xl mx-auto">
-            Ready to learn a skill that actually pays off?
+            Ready to start learning a practical skill?
           </h2>
           <p className="mt-4 text-blue-50/90 max-w-lg mx-auto">
             A new batch opens about every six weeks. Reach out and we&apos;ll help you pick the

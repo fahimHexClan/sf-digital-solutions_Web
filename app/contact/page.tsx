@@ -60,7 +60,7 @@ export default function ContactPage() {
                     Send us a message
                   </h2>
                   <p className="text-xs text-brand-slate">
-                    We usually reply within one business day
+                    We&apos;ll get back to you as soon as we can
                   </p>
                 </div>
               </div>

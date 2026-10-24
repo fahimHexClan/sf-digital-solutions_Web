@@ -54,7 +54,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Portfolio showAllLink />
+      <Portfolio showAllLink limit={2} />
 
       <section className="py-16 sm:py-20">
         <div className="container-page">

@@ -174,7 +174,8 @@ export type PortfolioItem = {
   tagline: string;
   description: string;
   tags: string[];
-  url: string;
+  /** Live link. Leave out for concept demos that have no live site. */
+  url?: string;
   /** Kind of website, e.g. "Education platform". */
   websiteType: string;
   /** Short list of what the project includes. */
@@ -207,6 +208,42 @@ export const portfolio: PortfolioItem[] = [
     url: "https://openday-tokens.netlify.app/",
     websiteType: "Event web app",
     features: ["Digital queue tokens", "Real-time queue position tracking"],
+  },
+  {
+    slug: "demo-restaurant-menu",
+    title: "Restaurant Menu & Ordering Site",
+    tagline: "Concept demo for a fictional restaurant",
+    description:
+      "A concept design for a restaurant website with a digital menu, opening hours and a one-tap WhatsApp order button, designed mobile-first. It shows the kind of site we can build; it is not a client project.",
+    tags: ["Concept demo", "Responsive", "WhatsApp ordering"],
+    websiteType: "Restaurant website",
+    features: ["Digital menu with categories", "Opening hours and location", "One-tap WhatsApp ordering", "Mobile-first layout"],
+    image: "/images/portfolio/demo-restaurant.png",
+    isDemo: true,
+  },
+  {
+    slug: "demo-salon-booking",
+    title: "Salon Appointment Page",
+    tagline: "Concept demo for a fictional salon",
+    description:
+      "A concept design for a salon or beauty business: services, a gallery and an easy way to request an appointment on WhatsApp. It shows the kind of site we can build; it is not a client project.",
+    tags: ["Concept demo", "Responsive", "WhatsApp booking"],
+    websiteType: "Service business website",
+    features: ["Services list", "Photo gallery", "Appointment requests on WhatsApp", "Contact details and map"],
+    image: "/images/portfolio/demo-salon.png",
+    isDemo: true,
+  },
+  {
+    slug: "demo-online-shop",
+    title: "Small Online Shop",
+    tagline: "Concept demo for a fictional gift shop",
+    description:
+      "A concept design for a small online shop with a product catalogue, product pages and simple ordering by WhatsApp or bank transfer. It shows the kind of site we can build; it is not a client project.",
+    tags: ["Concept demo", "Responsive", "E-commerce"],
+    websiteType: "E-commerce website",
+    features: ["Product catalogue by category", "Product pages with photos", "Ordering by WhatsApp or bank transfer", "Mobile-friendly shopping"],
+    image: "/images/portfolio/demo-shop.png",
+    isDemo: true,
   },
 ];
 
