@@ -104,7 +104,7 @@ export default function CorporateTrainingPage() {
               Request a Quote
             </h3>
             <p className="text-sm text-brand-slate mb-6">
-              We usually reply within one business day.
+              We&apos;ll get back to you as soon as we can.
             </p>
             <CorporateTrainingForm />
           </div>

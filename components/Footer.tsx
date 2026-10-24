@@ -95,7 +95,7 @@ export default function Footer() {
           <h3 className="font-display font-semibold text-white mb-1">Courses</h3>
           <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-brand-blue to-brand-sky mb-4" />
           <ul className="space-y-2.5 text-sm text-blue-200/80">
-            {courses.slice(0, 5).map((c) => (
+            {courses.map((c) => (
               <li key={c.slug}>
                 <Link
                   href={`/courses/${c.slug}`}

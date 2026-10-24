@@ -6,12 +6,16 @@ import { portfolio } from "@/lib/data";
 export default function Portfolio({
   showAllLink = false,
   headingLevel = "h2",
+  limit,
 }: {
+  /** Show only the first N projects (real projects are listed first). */
+  limit?: number;
   /** Show a "View all projects" link (used where the section is a teaser). */
   showAllLink?: boolean;
   headingLevel?: "h1" | "h2";
 }) {
   const Heading = headingLevel;
+  const items = limit ? portfolio.slice(0, limit) : portfolio;
   return (
     <section className="py-20 sm:py-24">
       <div className="container-page">
@@ -24,8 +28,9 @@ export default function Portfolio({
               Recent projects
             </Heading>
             <p className="mt-4 text-brand-slate leading-relaxed">
-              Websites and web apps we&apos;ve built. Each one is live, so you
-              can open it and see for yourself.
+              Projects with a live link are real, and you can open them to see
+              for yourself. Projects marked &quot;Demo project&quot; are concept
+              designs we made to show what we can build for you.
             </p>
           </div>
           {showAllLink && (
@@ -39,7 +44,7 @@ export default function Portfolio({
         </div>
 
         <div className="mt-10 grid sm:grid-cols-2 gap-6">
-          {portfolio.map((p) => (
+          {items.map((p) => (
             <article
               key={p.slug}
               className="flex flex-col rounded-2xl bg-brand-navy overflow-hidden shadow-md hover:shadow-xl transition-shadow"
@@ -48,7 +53,7 @@ export default function Portfolio({
                 <div className="relative h-44 bg-brand-navy-light">
                   <Image
                     src={p.image}
-                    alt={`Screenshot of ${p.title}`}
+                    alt={p.isDemo ? `Concept design preview of ${p.title}` : `Screenshot of ${p.title}`}
                     fill
                     sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover object-top"
@@ -113,16 +118,22 @@ export default function Portfolio({
                   ))}
                 </div>
 
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-sky hover:text-white transition-colors"
-                >
-                  {p.isDemo ? "View demo" : "Visit live site"}
-                  <ArrowUpRight size={16} />
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-sky hover:text-white transition-colors"
+                  >
+                    Visit live site
+                    <ArrowUpRight size={16} />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ) : (
+                  <p className="mt-6 text-xs text-blue-100/60">
+                    Concept design for demonstration. Not a client project.
+                  </p>
+                )}
               </div>
             </article>
           ))}

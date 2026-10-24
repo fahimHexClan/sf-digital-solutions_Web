@@ -16,7 +16,7 @@ export default function BatchBanner() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
               </span>
-              Next Batch Now Open — Limited Seats Available
+              Enrolment Open — A New Batch Starts About Every 6 Weeks
             </>
           ) : (
             <>
@@ -32,7 +32,7 @@ export default function BatchBanner() {
           }
           className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-brand-blue hover:bg-blue-50 transition-colors shrink-0"
         >
-          {BATCH_OPEN ? "Reserve My Seat" : "Notify Me"} <ArrowRight size={14} />
+          {BATCH_OPEN ? "Enrol Now" : "Notify Me"} <ArrowRight size={14} />
         </Link>
       </div>
     </section>
