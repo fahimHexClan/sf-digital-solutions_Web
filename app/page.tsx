@@ -17,6 +17,7 @@ import ServicesSection from "@/components/ServicesSection";
 import TeacherCard from "@/components/TeacherCard";
 import BlogCard from "@/components/BlogCard";
 import CourseFinder from "@/components/CourseFinder";
+import RoadmapPromo from "@/components/RoadmapPromo";
 import FreeResources from "@/components/FreeResources";
 import BatchBanner from "@/components/BatchBanner";
 import TrustBadges from "@/components/TrustBadges";
@@ -123,6 +124,8 @@ export default function Home() {
       </section>
 
       <CourseFinder />
+
+      <RoadmapPromo />
 
       <CourseCategories />
       <ServicesSection />
@@ -267,7 +270,7 @@ export default function Home() {
             Ready to learn a skill that actually pays off?
           </h2>
           <p className="mt-4 text-blue-50/90 max-w-lg mx-auto">
-            Batches start every month. Reach out and we&apos;ll help you pick the
+            A new batch opens about every six weeks. Reach out and we&apos;ll help you pick the
             right course to start with.
           </p>
           <Link
