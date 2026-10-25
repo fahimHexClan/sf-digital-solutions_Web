@@ -6,7 +6,7 @@ import { paymentSteps } from "@/lib/websiteConfig";
 export const metadata: Metadata = {
   title: "Payment Policy",
   description:
-    "How payments work at SF Digital Solutions LK: bank transfer only, written quotation first, receipts for every payment, and never any request for banking passwords, PINs or OTPs.",
+    "How payments work: bank transfer, a written quotation first, a receipt for every payment, and no request for banking passwords, PINs or OTPs.",
   alternates: { canonical: "/payment-policy" },
 };
 

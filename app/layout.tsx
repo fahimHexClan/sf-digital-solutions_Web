@@ -6,13 +6,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AskSF from "@/components/AskSF";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Analytics from "@/components/Analytics";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, DEFAULT_OG_IMAGE, HOME_TITLE } from "@/lib/seo";
 import { CONTACT_EMAIL, PHONE_E164 } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Computer Training Institute in Sri Lanka`,
+    default: HOME_TITLE,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     locale: "en_LK",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Computer Training Institute in Sri Lanka`,
+    title: HOME_TITLE,
     description: SITE_DESCRIPTION,
     images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Computer Training Institute in Sri Lanka`,
+    title: HOME_TITLE,
     description: SITE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
   },
@@ -88,8 +88,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-navy focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1 outline-none">{children}</main>
         <Footer />
         <WhatsAppButton />
         <AskSF />

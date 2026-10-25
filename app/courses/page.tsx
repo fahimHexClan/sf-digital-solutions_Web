@@ -8,7 +8,7 @@ import { courses } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Courses",
   description:
-    "Practical computer, IT and digital skills courses from SF Digital Solutions LK — including Web Development, Graphic Design, Digital Marketing and our Professional Computer Basics Course.",
+    "Practical computer, IT and digital skills courses: Web Development, Graphic Design, Digital Marketing and the Professional Computer Basics Course.",
   alternates: { canonical: "/courses" },
 };
 
