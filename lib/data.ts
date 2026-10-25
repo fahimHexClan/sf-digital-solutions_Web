@@ -196,6 +196,7 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Web Development", "Education Platform", "LMS Integration"],
     url: "https://skill-lift-nz.vercel.app/",
     websiteType: "Education / course-sales platform",
+    image: "/images/portfolio/skilllift.jpg",
     features: ["Course sales page", "Instructor profiles", "LMS login portal", "Course enrolment flow"],
   },
   {
@@ -207,6 +208,7 @@ export const portfolio: PortfolioItem[] = [
     tags: ["Web App", "Event Management", "Real-Time Queue"],
     url: "https://openday-tokens.netlify.app/",
     websiteType: "Event web app",
+    image: "/images/portfolio/openday.png",
     features: ["Digital queue tokens", "Real-time queue position tracking"],
   },
   {
