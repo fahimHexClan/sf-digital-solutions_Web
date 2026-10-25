@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { courses, services, posts } from "@/lib/data";
+import { toIsoDate } from "@/lib/format";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -36,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${SITE_URL}/blog/${p.slug}`,
+    lastModified: new Date(toIsoDate(p.date)),
     changeFrequency: "monthly",
     priority: 0.6,
   }));

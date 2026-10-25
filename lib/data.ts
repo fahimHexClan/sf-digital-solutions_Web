@@ -604,7 +604,7 @@ export const teachers: Teacher[] = [
 export const posts: Post[] = [
   {
     slug: "how-to-choose-a-website-for-your-small-business-sri-lanka",
-    title: "How to Choose the Right Website for Your Small Business in Sri Lanka",
+    title: "How to Choose a Website for Your Small Business in Sri Lanka",
     excerpt:
       "Landing page, business website or online shop? Here is how to decide, and what to ask before you pay anyone.",
     date: "October 24, 2026",
@@ -647,7 +647,7 @@ export const posts: Post[] = [
   },
   {
     slug: "how-to-plan-your-weekly-study-time-when-learning-a-new-skill",
-    title: "How to Plan Your Weekly Study Time When Learning a New Skill",
+    title: "How to Plan Your Weekly Study Time for a New Skill",
     excerpt:
       "A simple routine beats motivation. Here is how to fit learning into a busy week and actually stick to it.",
     date: "October 24, 2026",

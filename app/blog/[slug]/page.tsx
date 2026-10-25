@@ -20,8 +20,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return { title: "Blog" };
+  // Keep search-result titles near 60 characters: skip the site-name suffix on longer titles.
+  const seoTitle = post.title.length + SITE_NAME.length + 3 > 60 ? { absolute: post.title } : post.title;
   return {
-    title: post.title,
+    title: seoTitle,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {

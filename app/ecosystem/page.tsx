@@ -5,7 +5,7 @@ import PageCover from "@/components/PageCover";
 import { TAGLINE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Our Divisions: Campus, Technologies and Media",
+  title: "Our Three Divisions",
   description:
     "SF Digital Solutions LK brings IT training, website and software development, and digital marketing together under one team for students and businesses in Sri Lanka.",
   alternates: { canonical: "/ecosystem" },

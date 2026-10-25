@@ -39,12 +39,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const course = courses.find((c) => c.slug === slug);
   if (!course) return { title: "Course" };
+  const pageTitle = /course|diploma/i.test(course.title) ? course.title : `${course.title} Course`;
   return {
-    title: course.title,
+    title: pageTitle,
     description: course.description,
     alternates: { canonical: `/courses/${course.slug}` },
     openGraph: {
-      title: course.title,
+      title: pageTitle,
       description: course.description,
       type: "website",
       images: [{ url: course.image }],
