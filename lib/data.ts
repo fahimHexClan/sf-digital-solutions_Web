@@ -601,6 +601,70 @@ export const teachers: Teacher[] = [
 
 export const posts: Post[] = [
   {
+    slug: "how-to-choose-a-website-for-your-small-business-sri-lanka",
+    title: "How to Choose the Right Website for Your Small Business in Sri Lanka",
+    excerpt:
+      "Landing page, business website or online shop? Here is how to decide, and what to ask before you pay anyone.",
+    date: "October 24, 2026",
+    author: "SF Digital Solutions LK",
+    category: "Websites",
+    image:
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "Many small business owners know they need a website but are not sure what kind. Before you talk to any developer, it helps to answer one question: what should the website do for your business? Get you enquiries? Show your work? Take orders? The answer decides almost everything else.",
+      "If you want people to contact you about one service or one campaign, a single landing page is often enough. If you want to present your whole business, with services, an About section and contact details, a multi-page business website fits better. If you want to sell products online, you need an online shop. A personal or portfolio website suits freelancers who want to show their work.",
+      "Think about your customers' phones. Many people in Sri Lanka browse on mobile, so a site that is hard to read on a small screen loses visitors. Ask to see how your site will look on a phone, not only on a computer.",
+      "Get your content ready early. A logo, a few clear photos of your work and the text that explains what you do take more time than most people expect, and delays in content are one of the most common reasons websites take longer than planned.",
+      "Ask who pays for what. The domain name (for example yourbusiness.lk) and web hosting are usually yearly costs paid to the provider, separate from the design work. Ask who will register them, whose name they will be in, and who will pay the renewals.",
+      "Always ask for a written quotation before you pay anything. It should say exactly what is included, the total price, the delivery timeline, how many rounds of changes are included, and what happens if you want extra pages or features later. If something is not written down, do not assume it is included.",
+      "Be careful with payments. Pay only to the account details given in the written quotation, keep your receipt, and never share your online banking password, PIN or one-time password with anyone, including a developer.",
+      "Finally, ask what happens after the website goes live. Fixing a defect in the delivered work is different from ongoing maintenance, content updates or new features, and the last three are normally paid work. Knowing this in advance avoids surprises.",
+      "At SF Digital Solutions LK we work this way: we talk through your needs, send a written quotation, agree the scope, build and test the site, and hand it over with the agreed support. You can read how it works on our Website Design service page and send a quote request from there.",
+    ],
+  },
+  {
+    slug: "five-excel-skills-every-beginner-should-learn-first",
+    title: "5 Excel Skills Every Beginner Should Learn First",
+    excerpt:
+      "You do not need to learn every Excel function. These five skills cover most everyday office work.",
+    date: "October 24, 2026",
+    author: "SF Digital Solutions LK",
+    category: "Office Skills",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "Excel has hundreds of functions, which makes it look harder than it is. For most office, admin and small-business tasks, a handful of skills do most of the work. If you are starting from zero, learn these five first.",
+      "1. Entering and formatting data cleanly. Put one kind of information in each column, give every column a clear heading, and keep the rows consistent. Clean data makes every later step easier. Learn to adjust column widths, apply number and date formats, and turn a plain range into a table.",
+      "2. Sorting and filtering. Once your data is in a table, sorting (for example from highest to lowest) and filtering (for example showing only one month or one customer) let you find answers in seconds instead of scrolling through hundreds of rows.",
+      "3. Basic formulas. Start with SUM, AVERAGE, MIN, MAX and COUNT. Then learn the IF function, which lets a cell show different results depending on a condition, such as marking a payment as Paid or Pending. Remember that every formula starts with an equals sign.",
+      "4. Looking up information. Lookup functions find a value in one table and bring it into another, for example finding a product price from a product code. XLOOKUP is available in newer versions of Excel (Microsoft 365 and Excel 2021 onwards). Older versions use VLOOKUP for the same job.",
+      "5. Simple charts. A clear column or line chart often explains your numbers better than a table. Learn to choose the right chart type, give it a title and label the axes so that anyone can read it without asking you what it means.",
+      "A good way to practise is to build something you actually need, such as a monthly budget, a simple stock list or a class attendance sheet. Real tasks teach faster than exercises, and you finish with a file you can use.",
+      "If you would like guided practice, Excel is part of our Professional Computer Basics Course, where we start from the very beginning and build up step by step.",
+    ],
+  },
+  {
+    slug: "how-to-plan-your-weekly-study-time-when-learning-a-new-skill",
+    title: "How to Plan Your Weekly Study Time When Learning a New Skill",
+    excerpt:
+      "A simple routine beats motivation. Here is how to fit learning into a busy week and actually stick to it.",
+    date: "October 24, 2026",
+    author: "SF Digital Solutions LK",
+    category: "Learning Tips",
+    image:
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=900&auto=format&fit=crop",
+    content: [
+      "Most people who give up on a new skill do not fail because it is too difficult. They stop because they never built a routine. Motivation comes and goes, but a simple weekly plan keeps you moving on the days you do not feel like studying.",
+      "Start by being honest about your time. If you work or study during the day, three to five hours a week may be realistic. It is better to plan a smaller number of hours that you will really keep than a big number that falls apart in the second week.",
+      "Choose fixed slots and write them down, for example Tuesday and Thursday evenings and one hour on Saturday morning. Treat them like appointments. Several short sessions usually work better than one very long session, because you remember more when you come back to a topic more often.",
+      "Spend most of your time practising, not only watching or reading. Watch a lesson, then close it and try to do the task yourself. If you are learning Word, build a CV. If you are learning web design, build a small page. Practice is where the skill actually forms.",
+      "End every session by making or finishing something small, even if it is only one worksheet or one section of a page. Finishing gives you a feeling of progress and a clear place to start next time.",
+      "Review once a week. Spend ten minutes looking at what you did, what felt difficult and what you will do next. If a topic is taking much longer than planned, that is normal. Adjust the plan instead of giving up.",
+      "If you are not sure what order to learn things in, we built a free Learning Roadmap Planner on this website. You choose your goal, your level and how many hours you can study each week, and it gives you a step-by-step plan with practice projects and matching courses. It is a general planning guide, not a promise of any result, and you do not need an account to use it.",
+      "If you prefer guided classes, take a look at the courses on our website, and message us if you want help choosing the right one.",
+    ],
+  },
+  {
     slug: "best-digital-skills-for-beginners-in-sri-lanka",
     title: "Best Digital Skills for Beginners in Sri Lanka",
     excerpt:
